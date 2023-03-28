@@ -1,7 +1,6 @@
 package onlineshop.repositories;
 
 import onlineshop.models.CPU;
-import onlineshop.models.CasePC;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
