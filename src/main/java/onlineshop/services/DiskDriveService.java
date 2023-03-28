@@ -15,7 +15,7 @@ import java.util.Optional;
 public class DiskDriveService {
     private final DiskDriveRepository diskDriveRepository;
 
-    public List<DiskDrive> diskDriveList() { // Displays a list of a disk drive
+    public List<DiskDrive> showDiskDriveList() { // Displays a list of a disk drive
         return diskDriveRepository.findAll();
     }
     public Optional<DiskDrive> findDiskDriveById(int id) { // Displays a disk drive by id

@@ -15,7 +15,7 @@ import java.util.Optional;
 public class PowerPCService {
     private final PowerPCRepository powerPCRepository;
 
-    public List<PowerPC> powerPCList() { // Displays a list of a PowerPC
+    public List<PowerPC> showPowerPCList() { // Displays a list of a PowerPC
         return powerPCRepository.findAll();
     }
     public Optional<PowerPC> findPowerPCById(int id) { // Displays a PowerPC by id

@@ -15,6 +15,8 @@ public class CasePC {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @Column(name = "image")
+    private String image;
     @Column(name = "form")
     private String form;
     @Column(name = "coolers")

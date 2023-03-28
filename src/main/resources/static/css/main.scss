@@ -165,6 +165,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar {
   &__link {
+    font-family: $font-family_lato;
     text-shadow: 0 0 10px black;
     position: relative;
     color: white;
@@ -206,21 +207,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__products {
+    border-radius: 30px;
     display: flex;
     margin: -10px 20px 20px 20px;
+    box-shadow: 0 2px 7px black;
     width: 1160px;
     height: 480px;
-    border: 1px solid #000;
+    border: 1px solid white;
   }
 }
 
 .navigation {
   &__item {
+    font-family: $font-family_lato;
     overflow: hidden;
     padding: 15px 0;
     width: 150px;
     border: 1px solid white;
     font-size: 18px;
+    font-weight: 700;
     &:last-child {
       border-right: 0 solid black;
     }
@@ -248,49 +253,62 @@ h1, h2, h3, h4, h5, h6 {
   &__filters {
     text-align: center;
     width: 200px;
-    height: 480px;
-    border: 1px solid #000;
+    height: 470px;
   }
-
+  &__row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &__content {
     text-align: center;
     width: 960px;
     height: 480px;
-    border: 1px solid #000;
   }
   &__title {
     text-align: center;
-    width: 960px;
+    width: 945px;
     height: 50px;
-    border: 1px solid #000;
   }
 
   &__info {
     text-align: center;
-    width: 960px;
+    width: 945px;
     height: 429px;
-    border: 1px solid #000;
   }
 }
 .filters {
-  border: 1px solid #000;
-  margin: 6px 10px;
-  height: 457px;
+  &__row {
+    margin-left: 10px;
+    padding: 17px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   &__title {
+    box-shadow: 0 1px 5px black;
+    background-color: rgba(255, 255, 255, 0.65);
     border: 1px solid #000;
-    margin: 10px;
-    height: 50px;
+    border-radius: 10px;
+    height: 35px;
   }
 
   &__content {
+    box-shadow: 0 1px 5px black;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin: 15px 0 0 0;
     border: 1px solid #000;
-    margin: 10px;
-    height: 370px;
+    border-radius: 10px;
+    flex: 1 0 auto;
   }
 }
 
 .title {
-  margin: 5px 15px;
+  box-shadow: 0 1px 5px black;
+  background-color: rgba(255, 255, 255, 0.65);
+  overflow: hidden;
+  margin: 15px 15px;
+  border-radius: 10px;
   border: 1px solid #000;
   &__text {
     width: 900px;
@@ -300,9 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .info {
   margin: 5px;
-  border: 1px solid #000;
   &__row {
-    border: 1px solid #000;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -313,11 +329,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__column {
+    overflow: hidden;
     width: 150px;
     flex: 1 1 23%;
     margin: 8px;
     height: 180px;
-    border: 1px solid #000;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px black;
   }
 
   &__component {
@@ -326,12 +344,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .component {
   &__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__image {
+    background-color: white;
   }
 
   &__title {
+    border: 1px solid #000;
   }
 }
 

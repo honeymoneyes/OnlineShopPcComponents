@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en", xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
@@ -83,85 +83,104 @@
                 </div>
                 <div class="main__products">
                     <div class="products__filters">
-                        <div class="filters">
+                        <div class="filters__row">
                             <div class="filters__title">Фильтры</div>
-                            <div class="filters__content"></div>
+                            <div class="filters__content">Контент</div>
                         </div>
                     </div>
                     <div class="products__content">
-                        <div class="products__title">
-                            <div class="title">
-                                <div class="title__text">Компонент</div>
-                            </div>
-                        </div>
-                        <div class="products__info">
-                            <div class="info">
-                                <div class="info__row">
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info__column">
-                                        <div class="info__component">
-                                            <div class="component__row">
-                                                <div class="component__image"></div>
-                                                <div class="component__title"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="products__row">
+                            <div class="products__title">
+                                <div class="title">
+                                    <div class="title__text">Компонент</div>
                                 </div>
+                            </div>
+                            <div class="products__info">
+                                <form th:method="GET" th:object="${cases}">
+                                    <div class="info">
+                                        <div class="info__row">
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image">
+                                                            <img th:src="${cases.get(0).getImage()}" width="100px"
+                                                                 height="120px">
+                                                        </div>
+                                                        <div class="component__title">Норм кейс</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image">
+                                                            <img th:src="${cases.get(1).getImage()}" width="100px"
+                                                                 height="120px">
+                                                        </div>
+                                                        <div class="component__title">Норм кейс</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image">
+                                                            <img th:src="${cases.get(2).getImage()}" width="100px"
+                                                                 height="120px">
+                                                        </div>
+                                                        <div class="component__title">Норм кейс</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image">
+                                                            <img th:src="${cases.get(3).getImage()}" width="100px"
+                                                                 height="120px">
+                                                        </div>
+                                                        <div class="component__title">Норм кейс</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image">
+                                                            <img th:src="${cases.get(4).getImage()}" width="100px"
+                                                                 height="120px">
+                                                        </div>
+                                                        <div class="component__title">Норм кейс</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image"></div>
+                                                        <div class="component__title"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image"></div>
+                                                        <div class="component__title"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image"></div>
+                                                        <div class="component__title"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

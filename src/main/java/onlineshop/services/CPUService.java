@@ -15,7 +15,7 @@ import java.util.Optional;
 public class CPUService {
     private final CPURepository cpuRepository;
 
-    public List<CPU> cpuList() { // Displays a list of CPUs
+    public List<CPU> showCpuList() { // Displays a list of CPUs
         return cpuRepository.findAll();
     }
     public Optional<CPU> findCpuById(int id) { // Displays a CPU by id

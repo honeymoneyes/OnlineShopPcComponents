@@ -15,7 +15,7 @@ import java.util.Optional;
 public class RAMService {
     private final RAMRepository ramRepository;
 
-    public List<RAM> ramList() { // Displays a list of a RAM
+    public List<RAM> showRamList() { // Displays a list of a RAM
         return ramRepository.findAll();
     }
     public Optional<RAM> findRamById(int id) { // Displays a RAM by id

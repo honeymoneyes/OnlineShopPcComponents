@@ -15,7 +15,7 @@ import java.util.Optional;
 public class MotherboardService {
     private final MotherboardRepository motherboardRepository;
 
-    public List<Motherboard> motherboardList() { // Displays a list of a motherboards
+    public List<Motherboard> showMotherboardList() { // Displays a list of a motherboards
         return motherboardRepository.findAll();
     }
     public Optional<Motherboard> findMotherboardById(int id) { // Displays a motherboards by id

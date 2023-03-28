@@ -15,7 +15,7 @@ import java.util.Optional;
 public class GraphicCardService {
     private final GraphicCardRepository graphicCardRepository;
 
-    public List<GraphicCard> graphicCardsList() { // Displays a list of a graphic cards
+    public List<GraphicCard> showGraphicCardsList() { // Displays a list of a graphic cards
         return graphicCardRepository.findAll();
     }
     public Optional<GraphicCard> findGraphicCardById(int id) { // Displays a graphic card by id
