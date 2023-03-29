@@ -18,13 +18,16 @@ public class DiskDriveService {
     public List<DiskDrive> showDiskDriveList() { // Displays a list of a disk drive
         return diskDriveRepository.findAll();
     }
+
     public Optional<DiskDrive> findDiskDriveById(int id) { // Displays a disk drive by id
         return diskDriveRepository.findById(id);
     }
+
     @Transactional
     public void addDiskDrive(DiskDrive diskDrive) { // Adds a disk drive
         diskDriveRepository.save(diskDrive);
     }
+
     @Transactional
     public void updateInfoAboutDiskDrive(int id, DiskDrive diskDrive) { // Updates info about for a disk drive
         diskDrive.setId(id);

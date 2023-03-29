@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-$font-family_kaushan:"Kaushan Script";
+
+$font-family_kaushan: "Kaushan Script";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-$font-family_montserrat:"Montserrat";
+$font-family_montserrat: "Montserrat";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
-$font-family_lato:"Lato";
+$font-family_lato: "Lato";
 /*//////////////////////////////////////*/
 
 * {
@@ -77,6 +78,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
 /*////////////////////////////////////////////////////*/
 .wrapper {
   background: url("../img/main-image.jpg") 50%/cover no-repeat;
@@ -85,6 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
 }
+
 .container {
   max-width: 1200px;
   min-width: 1000px;
@@ -93,213 +96,231 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
   &__title {
-    padding: 30px 45px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	padding: 30px 45px 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
   }
 
   &__name {
-    font-family: $font-family_montserrat;
-    color: white;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 36px;
-    text-shadow: 0 0 10px black;
+	font-family: $font-family_montserrat;
+	color: white;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 36px;
+	text-shadow: 0 0 10px black;
   }
+
   &__search {
-    display: flex;
-    margin: 0 0 0 125px;
-    justify-content: space-around;
-    align-items: center;
-    width: 350px;
-    height: 50px;
-    background-color: white;
-    border: 1px solid #000;
-    border-radius: 15px;
-    input {
-      font-size: 20px;
-      width: 300px;
-      height: 35px;
-    }
+	display: flex;
+	margin: 0 0 0 125px;
+	justify-content: space-around;
+	align-items: center;
+	width: 350px;
+	height: 50px;
+	background-color: white;
+	border: 1px solid #000;
+	border-radius: 15px;
+
+	input {
+	  font-size: 20px;
+	  width: 300px;
+	  height: 35px;
+	}
   }
+
   &__navbar {
   }
-  
+
   &__image {
-    background-color: firebrick;
-    box-shadow: 0 0 10px black;
-    border-radius: 50px;
-    height: 20px;
+	background-color: firebrick;
+	box-shadow: 0 0 10px black;
+	border-radius: 50px;
+	height: 20px;
   }
 }
+
 .search {
   &__place {
-    padding: 0 0 0 20px;
-    margin: 0 60px 0 0;
-    width: 180px;
+	padding: 0 0 0 20px;
+	margin: 0 60px 0 0;
+	width: 180px;
   }
 
   &__button {
-    margin: 0 0 0 25px;
-    width: 50px;
-    height: 40px;
-    border-radius: 15px;
-    background-color: peachpuff;
-    &:hover {
-      transform: scale(1.1);
-      transition: 100ms linear;
-    }
+	margin: 0 0 0 25px;
+	width: 50px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: peachpuff;
+
+	&:hover {
+	  transform: scale(1.1);
+	  transition: 100ms linear;
+	}
   }
 
   &__icon {
-    position: relative;
-    font-size: 16px;
-    &:after {
-      top: -22px;
-      left: -7px;
-      position: absolute;
-      content: url("../img/header/loupe-search-image.svg");
-    }
+	position: relative;
+	font-size: 16px;
+
+	&:after {
+	  top: -22px;
+	  left: -7px;
+	  position: absolute;
+	  content: url("../img/header/loupe-search-image.svg");
+	}
   }
 }
+
 .navbar {
   &__link {
-    font-family: $font-family_lato;
-    text-shadow: 0 0 10px black;
-    position: relative;
-    color: white;
-    padding-right: 10px;
-    font-size: 16px;
-    &:nth-child(4):after {
-      top: -30px;
-      left: 0;
-      position: absolute;
-      content: url("../img/header/cart-image.svg");
-    }
-    &:hover {
-      color: salmon;
-      font-size: 17px;
-      transition: 300ms linear;
-    }
+	font-family: $font-family_lato;
+	text-shadow: 0 0 10px black;
+	position: relative;
+	color: white;
+	padding-right: 10px;
+	font-size: 16px;
+
+	&:nth-child(4):after {
+	  top: -30px;
+	  left: 0;
+	  position: absolute;
+	  content: url("../img/header/cart-image.svg");
+	}
+
+	&:hover {
+	  color: salmon;
+	  font-size: 17px;
+	  transition: 300ms linear;
+	}
   }
 }
 
 .main {
-  margin:  20px 0 0 0;
+  margin: 20px 0 0 0;
 
   &__row {
-    background: rgba(255, 210, 237, 0.37);
-    padding: 5px 0 0 0;
-    box-shadow: 0 2px 3px black;
-    border-radius: 25px;
-    height: 670px;
+	border: 2px solid white;
+	background: rgba(255, 210, 237, 0.37);
+	padding: 5px 0 0 0;
+	box-shadow: 0 2px 3px black;
+	border-radius: 25px;
+	height: 670px;
   }
 
   &__navigation {
-    display: flex;
-    justify-content: center;
-    margin: 20px 20px 35px 20px;
-    border: 1px solid white;
-    box-shadow: 0 0 7px black;
-    border-radius: 30px;
-    overflow: hidden;
+	display: flex;
+	justify-content: center;
+	max-width: 1172px;
+	margin: 20px 0 35px 20px;
+	border-radius: 20px;
   }
 
   &__products {
-    border-radius: 30px;
-    display: flex;
-    margin: -10px 20px 20px 20px;
-    box-shadow: 0 2px 7px black;
-    width: 1160px;
-    height: 480px;
-    border: 1px solid white;
+	border-radius: 30px;
+	display: flex;
+	margin: -10px 20px 20px 20px;
+	box-shadow: 0 2px 7px black;
+	width: 1160px;
+	height: 480px;
+	border: 2px solid white;
   }
 }
 
 .navigation {
   &__item {
-    font-family: $font-family_lato;
-    overflow: hidden;
-    padding: 15px 0;
-    width: 150px;
-    border: 1px solid white;
-    font-size: 18px;
-    font-weight: 700;
-    &:last-child {
-      border-right: 0 solid black;
-    }
-    &:hover {
-      background-color: rgba(51,21,31,0.1);
-      border: hidden;
-      font-size: 20px;
-      transition: 100ms linear;
-      transform: scale(1.05);
-    }
+	border: 2px solid white;
+	box-shadow: 0 0 5px black;
+	background-color: lightblue;
+	font-family: $font-family_lato;
+	padding-top: 15px;
+	margin: 0 10px 0 0;
+	width: 150px;
+	height: 115px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: 700;
+
+	&:hover {
+	  width: 165px;
+	  background-color: rgba(167, 242, 252, 0.83);
+	  border: hidden;
+	  font-size: 20px;
+	  transition: 100ms linear;
+	  transform: scale(1.05);
+	}
   }
 }
+
 .item {
   &__icon {
-    text-align: center;
+	text-align: center;
   }
 
   &__title {
-    color: white;
-    padding: 10px 0 0 0;
-    text-align: center;
+	color: white;
+	padding: 10px 0 0 0;
+	text-align: center;
   }
 }
+
 .products {
   &__filters {
-    text-align: center;
-    width: 200px;
-    height: 470px;
+	text-align: center;
+	width: 200px;
+	height: 470px;
   }
+
   &__row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
   }
+
   &__content {
-    text-align: center;
-    width: 960px;
-    height: 480px;
+	text-align: center;
+	width: 960px;
+	height: 480px;
   }
+
   &__title {
-    text-align: center;
-    width: 945px;
-    height: 50px;
+	text-align: center;
+	width: 945px;
+	height: 50px;
   }
 
   &__info {
-    text-align: center;
-    width: 945px;
-    height: 429px;
+	text-align: center;
+	width: 945px;
+	height: 429px;
   }
 }
+
 .filters {
   &__row {
-    margin-left: 10px;
-    padding: 17px 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+	margin-left: 10px;
+	padding: 17px 10px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
   }
+
   &__title {
-    box-shadow: 0 1px 5px black;
-    background-color: rgba(255, 255, 255, 0.65);
-    border: 1px solid #000;
-    border-radius: 10px;
-    height: 35px;
+	box-shadow: 0 1px 5px black;
+	background-color: rgba(255, 255, 255, 0.65);
+	border: 1px solid #000;
+	border-radius: 10px;
+	height: 35px;
   }
 
   &__content {
-    box-shadow: 0 1px 5px black;
-    background-color: rgba(255, 255, 255, 0.65);
-    margin: 15px 0 0 0;
-    border: 1px solid #000;
-    border-radius: 10px;
-    flex: 1 0 auto;
+	box-shadow: 0 1px 5px black;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin: 15px 0 0 0;
+	border: 1px solid #000;
+	border-radius: 10px;
+	flex: 1 0 auto;
   }
 }
 
@@ -310,9 +331,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 15px 15px;
   border-radius: 10px;
   border: 1px solid #000;
+
   &__text {
-    width: 900px;
-    height: 35px;
+	width: 900px;
+	height: 35px;
   }
 }
 
@@ -320,66 +342,88 @@ h1, h2, h3, h4, h5, h6 {
   margin: 5px;
 
   &__row {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 926px;
-    height: 405px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 926px;
+	height: 405px;
   }
+
   &__reference {
-    background-color: skyblue;
-    overflow: hidden;
-    width: 150px;
-    flex: 1 1 23%;
-    margin: 8px;
-    height: 180px;
-    border-radius: 30px;
-    box-shadow: 0 2px 7px black;
-    &:hover {
-      transform: scale(1.02);
-      transition: 200ms linear;
-    }
-    &:active {
-      transform: scale(0.95);
-      transition: 200ms linear;
-      color: white;
-      border: 3px solid #000;
-      box-shadow: 0 4px 10px black;
-    }
+	border: 2px solid ghostwhite;
+	background-color: skyblue;
+	overflow: hidden;
+	width: 150px;
+	flex: 1 1 23%;
+	margin: 8px;
+	height: 180px;
+	border-radius: 30px;
+	box-shadow: 0 2px 7px black;
+
+	&:hover {
+	  transform: scale(1.02);
+	  transition: 200ms linear;
+	}
+
+	&:active {
+	  transform: scale(0.95);
+	  transition: 200ms linear;
+	  color: white;
+	  border: 3px solid #000;
+	  box-shadow: 0 4px 10px black;
+	}
   }
+
   &__column {
   }
 
   &__component {
-    background-color: greenyellow;
   }
 }
 
 .component {
   &__row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
   }
 
   &__image {
-    background-color: white;
+	background-color: white;
   }
 
   &__title {
+	margin: 5px 0 0 0;
+	color: white;
+	font-weight: 700;
+	text-shadow: 1px 1px 5px black;
+	font-family: $font-family_lato;
+	font-size: 14px;
+	height: 20px;
+  }
+
+  &__price {
+	color: yellow;
+	margin: 12px 0 0 0;
+	text-shadow: 1px -1px 3px black;
+	height: 20px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	font-size: 25px;
   }
 }
 
 .footer {
   height: 110px;
   padding-top: 2%;
-  &__text{
-    text-shadow: 0 0 10px black;
-    color: white;
-    font-weight: 700;
-    text-align: center;
-    font-size: 40px;
+
+  &__text {
+	text-shadow: 0 0 10px black;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+	font-size: 40px;
   }
 }

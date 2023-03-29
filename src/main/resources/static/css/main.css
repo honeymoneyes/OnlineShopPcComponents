@@ -193,6 +193,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 20px 0 0 0;
 }
 .main__row {
+  border: 2px solid white;
   background: rgba(255, 210, 237, 0.37);
   padding: 5px 0 0 0;
   -webkit-box-shadow: 0 2px 3px black;
@@ -207,12 +208,9 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px 20px 35px 20px;
-  border: 1px solid white;
-  -webkit-box-shadow: 0 0 7px black;
-          box-shadow: 0 0 7px black;
-  border-radius: 30px;
-  overflow: hidden;
+  max-width: 1172px;
+  margin: 20px 0 35px 20px;
+  border-radius: 20px;
 }
 .main__products {
   border-radius: 30px;
@@ -224,23 +222,26 @@ h1, h2, h3, h4, h5, h6 {
           box-shadow: 0 2px 7px black;
   width: 1160px;
   height: 480px;
-  border: 1px solid white;
+  border: 2px solid white;
 }
 
 .navigation__item {
+  border: 2px solid white;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+  background-color: lightblue;
   font-family: "Lato";
-  overflow: hidden;
-  padding: 15px 0;
+  padding-top: 15px;
+  margin: 0 10px 0 0;
   width: 150px;
-  border: 1px solid white;
+  height: 115px;
+  border-radius: 10px;
   font-size: 18px;
   font-weight: 700;
 }
-.navigation__item:last-child {
-  border-right: 0 solid black;
-}
 .navigation__item:hover {
-  background-color: rgba(51, 21, 31, 0.1);
+  width: 165px;
+  background-color: rgba(167, 242, 252, 0.83);
   border: hidden;
   font-size: 20px;
   -webkit-transition: 100ms linear;
@@ -357,6 +358,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 405px;
 }
 .info__reference {
+  border: 2px solid ghostwhite;
   background-color: skyblue;
   overflow: hidden;
   width: 150px;
@@ -385,10 +387,6 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-shadow: 0 4px 10px black;
           box-shadow: 0 4px 10px black;
 }
-.info__component {
-  background-color: greenyellow;
-}
-
 .component__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -404,6 +402,25 @@ h1, h2, h3, h4, h5, h6 {
 .component__image {
   background-color: white;
 }
+.component__title {
+  margin: 5px 0 0 0;
+  color: white;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px black;
+  font-family: "Lato";
+  font-size: 14px;
+  height: 20px;
+}
+.component__price {
+  color: yellow;
+  margin: 12px 0 0 0;
+  text-shadow: 1px -1px 3px black;
+  height: 20px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 25px;
+}
+
 .footer {
   height: 110px;
   padding-top: 2%;

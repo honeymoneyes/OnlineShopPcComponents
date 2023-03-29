@@ -18,13 +18,16 @@ public class RAMService {
     public List<RAM> showRamList() { // Displays a list of a RAM
         return ramRepository.findAll();
     }
+
     public Optional<RAM> findRamById(int id) { // Displays a RAM by id
         return ramRepository.findById(id);
     }
+
     @Transactional
     public void addRam(RAM ram) { // Adds a RAM
         ramRepository.save(ram);
     }
+
     @Transactional
     public void updateInfoAboutRam(int id, RAM ram) { // Updates info about for a RAM
         ram.setId(id);

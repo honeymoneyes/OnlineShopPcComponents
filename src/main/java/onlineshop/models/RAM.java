@@ -17,9 +17,13 @@ public class RAM {
     @Column(name = "id")
     private int id;
     @Column(name = "image")
-    private String image; // Image
+    private String image; // Product Photo
     @Column(name = "title")
-    private String title; // Title RAM
+    private String title; // Component Name
+    @Column(name = "subtitle")
+    private String subtitle; // Product Name
+    @Column(name = "price")
+    private String price; // Product Price
     @Column(name = "ddr")
     private int ddr; // DDR RAM - 2 - 3 - 4 - 5
     @Column(name = "capacity")

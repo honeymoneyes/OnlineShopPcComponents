@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en", xmlns:th="http://www.thymeleaf.org">
+<html lang="en" , xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
@@ -104,98 +104,137 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(0).getImage()}" width="100px"
-                                                                     height="120px">
+                                                                <img th:src="${cases.get(0).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
                                                             </div>
-                                                            <div class="component__title">Норм кейс</div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(0).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(0).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(1).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(1).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(1).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(1).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(2).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(2).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(2).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(2).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(3).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(3).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(3).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(3).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(4).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(4).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(4).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(5).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(5).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(5).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(5).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(5).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(6).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(6).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(6).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(6).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                             <a class="info__reference" href="#">
                                                 <div class="info__column">
-                                                <div class="info__component">
-                                                    <div class="component__row">
-                                                        <div class="component__image">
-                                                            <img th:src="${cases.get(7).getImage()}" width="100px"
-                                                                 height="120px">
+                                                    <div class="info__component">
+                                                        <div class="component__row">
+                                                            <div class="component__image">
+                                                                <img th:src="${cases.get(7).getImage()}"
+                                                                     th:width="${width}"
+                                                                     th:height="${height}">
+                                                            </div>
+                                                            <div class="component__title"
+                                                                 th:text="${cases.get(7).getSubtitle()}"></div>
+                                                            <div class="component__price"
+                                                                 th:text="${cases.get(7).getPrice()}"></div>
                                                         </div>
-                                                        <div class="component__title">Норм кейс</div>
                                                     </div>
                                                 </div>
-                                            </div></a>
+                                            </a>
                                         </div>
                                     </div>
                                 </form>
@@ -208,7 +247,9 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <div class="footer__text">Design and functionality developed by Alexander Antonyuk</div></div></footer>
+            <div class="footer__text">Design and functionality developed by Alexander Antonyuk</div>
+        </div>
+    </footer>
 </div>
 </body>
 </html>

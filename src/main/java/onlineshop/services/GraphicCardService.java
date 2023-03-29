@@ -18,13 +18,16 @@ public class GraphicCardService {
     public List<GraphicCard> showGraphicCardsList() { // Displays a list of a graphic cards
         return graphicCardRepository.findAll();
     }
+
     public Optional<GraphicCard> findGraphicCardById(int id) { // Displays a graphic card by id
         return graphicCardRepository.findById(id);
     }
+
     @Transactional
     public void addGraphicCard(GraphicCard graphicCard) { // Adds a graphic card
         graphicCardRepository.save(graphicCard);
     }
+
     @Transactional
     public void updateInfoAboutGraphicCard(int id, GraphicCard graphicCard) { // Updates info about for a graphic card
         graphicCard.setId(id);

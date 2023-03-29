@@ -17,9 +17,13 @@ public class GraphicCard {
     @Column(name = "id")
     private int id;
     @Column(name = "image")
-    private String image; // Image
+    private String image; // Product Photo
     @Column(name = "title")
-    private String title; // Title graphic card
+    private String title; // Component Name
+    @Column(name = "subtitle")
+    private String subtitle; // Product Name
+    @Column(name = "price")
+    private String price; // Product Price
     @Column(name = "model")
     private String model; // Model with GTX & RTX
     @Column(name = "frequency")
