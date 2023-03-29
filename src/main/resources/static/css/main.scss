@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
   &__title {
-    padding: 50px 45px 25px;
+    padding: 30px 45px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -318,6 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .info {
   margin: 5px;
+
   &__row {
     margin: 0 auto;
     display: flex;
@@ -327,18 +328,32 @@ h1, h2, h3, h4, h5, h6 {
     width: 926px;
     height: 405px;
   }
-
-  &__column {
+  &__reference {
+    background-color: skyblue;
     overflow: hidden;
     width: 150px;
     flex: 1 1 23%;
     margin: 8px;
     height: 180px;
     border-radius: 30px;
-    box-shadow: 0 2px 5px black;
+    box-shadow: 0 2px 7px black;
+    &:hover {
+      transform: scale(1.02);
+      transition: 200ms linear;
+    }
+    &:active {
+      transform: scale(0.95);
+      transition: 200ms linear;
+      color: white;
+      border: 3px solid #000;
+      box-shadow: 0 4px 10px black;
+    }
+  }
+  &__column {
   }
 
   &__component {
+    background-color: greenyellow;
   }
 }
 
@@ -354,7 +369,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__title {
-    border: 1px solid #000;
   }
 }
 
