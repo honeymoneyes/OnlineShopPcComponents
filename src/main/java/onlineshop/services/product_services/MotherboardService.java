@@ -1,8 +1,9 @@
-package onlineshop.services;
+package onlineshop.services.product_services;
 
 import lombok.RequiredArgsConstructor;
-import onlineshop.models.Motherboard;
+import onlineshop.models.products.Motherboard;
 import onlineshop.repositories.MotherboardRepository;
+import onlineshop.services.ProductService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,24 +13,28 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MotherboardService {
+public class MotherboardService implements ProductService<Motherboard> {
     private final MotherboardRepository motherboardRepository;
 
-    public List<Motherboard> showMotherboardList() { // Displays a list of a motherboards
+    @Override
+    public List<Motherboard> show() {
         return motherboardRepository.findAll();
     }
 
-    public Optional<Motherboard> findMotherboardById(int id) { // Displays a motherboards by id
+    @Override
+    public Optional<Motherboard> find(int id) {
         return motherboardRepository.findById(id);
     }
 
     @Transactional
-    public void addMotherboard(Motherboard motherboard) { // Adds a motherboards
+    @Override
+    public void add(Motherboard motherboard) {
         motherboardRepository.save(motherboard);
     }
 
     @Transactional
-    public void updateInfoAboutMotherboard(int id, Motherboard motherboard) { // Updates info about for a motherboards
+    @Override
+    public void update(int id, Motherboard motherboard) {
         motherboard.setId(id);
         motherboardRepository.save(motherboard);
     }

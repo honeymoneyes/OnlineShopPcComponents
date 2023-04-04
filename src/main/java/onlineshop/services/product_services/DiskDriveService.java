@@ -1,8 +1,9 @@
-package onlineshop.services;
+package onlineshop.services.product_services;
 
 import lombok.RequiredArgsConstructor;
-import onlineshop.models.DiskDrive;
+import onlineshop.models.products.DiskDrive;
 import onlineshop.repositories.DiskDriveRepository;
+import onlineshop.services.ProductService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,24 +13,28 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class DiskDriveService {
+public class DiskDriveService implements ProductService<DiskDrive> {
     private final DiskDriveRepository diskDriveRepository;
 
-    public List<DiskDrive> showDiskDriveList() { // Displays a list of a disk drive
+    @Override
+    public List<DiskDrive> show() {
         return diskDriveRepository.findAll();
     }
 
-    public Optional<DiskDrive> findDiskDriveById(int id) { // Displays a disk drive by id
+    @Override
+    public Optional<DiskDrive> find(int id) {
         return diskDriveRepository.findById(id);
     }
 
     @Transactional
-    public void addDiskDrive(DiskDrive diskDrive) { // Adds a disk drive
+    @Override
+    public void add(DiskDrive diskDrive) {
         diskDriveRepository.save(diskDrive);
     }
 
     @Transactional
-    public void updateInfoAboutDiskDrive(int id, DiskDrive diskDrive) { // Updates info about for a disk drive
+    @Override
+    public void update(int id, DiskDrive diskDrive) {
         diskDrive.setId(id);
         diskDriveRepository.save(diskDrive);
     }

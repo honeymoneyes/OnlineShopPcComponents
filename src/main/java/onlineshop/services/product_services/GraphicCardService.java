@@ -1,8 +1,9 @@
-package onlineshop.services;
+package onlineshop.services.product_services;
 
 import lombok.RequiredArgsConstructor;
-import onlineshop.models.GraphicCard;
+import onlineshop.models.products.GraphicCard;
 import onlineshop.repositories.GraphicCardRepository;
+import onlineshop.services.ProductService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,24 +13,28 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class GraphicCardService {
+public class GraphicCardService implements ProductService<GraphicCard> {
     private final GraphicCardRepository graphicCardRepository;
 
-    public List<GraphicCard> showGraphicCardsList() { // Displays a list of a graphic cards
+    @Override
+    public List<GraphicCard> show() {
         return graphicCardRepository.findAll();
     }
 
-    public Optional<GraphicCard> findGraphicCardById(int id) { // Displays a graphic card by id
+    @Override
+    public Optional<GraphicCard> find(int id) {
         return graphicCardRepository.findById(id);
     }
 
     @Transactional
-    public void addGraphicCard(GraphicCard graphicCard) { // Adds a graphic card
+    @Override
+    public void add(GraphicCard graphicCard) {
         graphicCardRepository.save(graphicCard);
     }
 
     @Transactional
-    public void updateInfoAboutGraphicCard(int id, GraphicCard graphicCard) { // Updates info about for a graphic card
+    @Override
+    public void update(int id, GraphicCard graphicCard) {
         graphicCard.setId(id);
         graphicCardRepository.save(graphicCard);
     }

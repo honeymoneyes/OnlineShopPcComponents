@@ -1,37 +1,41 @@
-package onlineshop.services;
+package onlineshop.services.product_services;
 
 import lombok.RequiredArgsConstructor;
-import onlineshop.models.CasePC;
+import onlineshop.models.products.CasePC;
 import onlineshop.repositories.CasePCRepository;
-import org.springframework.data.domain.Sort;
+import onlineshop.services.ProductService;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.TreeSet;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class CasePCService {
+public class CasePCService implements ProductService<CasePC> {
     private final CasePCRepository casePCRepository;
 
-    public List<CasePC> showCasePCAll() { // Displays a list of all PC cases
+    @Override
+    public List<CasePC> show() {
         return casePCRepository.findAll();
     }
 
-    public Optional<CasePC> findCasePCById(int id) { // Displays PC case by id
+    @Override
+    public Optional<CasePC> find(int id) {
         return casePCRepository.findById(id);
     }
 
     @Transactional
-    public void addCase(CasePC casePC) { // Adds a PC case
+    @Override
+    public void add(CasePC casePC) {
         casePCRepository.save(casePC);
     }
 
     @Transactional
-    public void updateInfoAboutCase(int id, CasePC casePC) { // Updates info about PC case
+    @Override
+    public void update(int id, CasePC casePC) {
         casePC.setId(id);
         casePCRepository.save(casePC);
     }

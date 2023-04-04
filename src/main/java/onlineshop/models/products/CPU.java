@@ -1,30 +1,25 @@
-package onlineshop.models;
+package onlineshop.models.products;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import onlineshop.models.Product;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "cpu")
-public class CPU {
+public class CPU extends Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "image")
-    private String image; // Product Photo
-    @Column(name = "title")
-    private String title; // Component Name
-    @Column(name = "subtitle")
-    private String subtitle; // Product Name
-    @Column(name = "price")
-    private String price; // Product Price
     @Column(name = "socket")
     private String socket; // CPU socket
     @Column(name = "model")

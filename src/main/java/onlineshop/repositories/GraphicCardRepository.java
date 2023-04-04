@@ -1,6 +1,6 @@
 package onlineshop.repositories;
 
-import onlineshop.models.GraphicCard;
+import onlineshop.models.products.GraphicCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

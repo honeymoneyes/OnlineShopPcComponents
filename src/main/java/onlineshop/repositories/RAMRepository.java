@@ -1,6 +1,6 @@
 package onlineshop.repositories;
 
-import onlineshop.models.RAM;
+import onlineshop.models.products.RAM;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package onlineshop.repositories;
 
-import onlineshop.models.DiskDrive;
+import onlineshop.models.products.DiskDrive;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

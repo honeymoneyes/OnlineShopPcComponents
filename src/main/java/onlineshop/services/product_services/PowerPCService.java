@@ -1,8 +1,9 @@
-package onlineshop.services;
+package onlineshop.services.product_services;
 
 import lombok.RequiredArgsConstructor;
-import onlineshop.models.PowerPC;
+import onlineshop.models.products.PowerPC;
 import onlineshop.repositories.PowerPCRepository;
+import onlineshop.services.ProductService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,24 +13,28 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class PowerPCService {
+public class PowerPCService implements ProductService<PowerPC> {
     private final PowerPCRepository powerPCRepository;
 
-    public List<PowerPC> showPowerPCList() { // Displays a list of a PowerPC
+    @Override
+    public List<PowerPC> show() {
         return powerPCRepository.findAll();
     }
 
-    public Optional<PowerPC> findPowerPCById(int id) { // Displays a PowerPC by id
+    @Override
+    public Optional<PowerPC> find(int id) {
         return powerPCRepository.findById(id);
     }
 
     @Transactional
-    public void addPowerPC(PowerPC powerPC) { // Adds a PowerPC
+    @Override
+    public void add(PowerPC powerPC) {
         powerPCRepository.save(powerPC);
     }
 
     @Transactional
-    public void updateInfoAboutPowerPC(int id, PowerPC powerPC) { // Updates info about for a PowerPC
+    @Override
+    public void update(int id, PowerPC powerPC) {
         powerPC.setId(id);
         powerPCRepository.save(powerPC);
     }
