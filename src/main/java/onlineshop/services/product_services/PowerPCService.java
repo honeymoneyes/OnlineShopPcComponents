@@ -1,9 +1,10 @@
 package onlineshop.services.product_services;
 
-import lombok.RequiredArgsConstructor;
+import onlineshop.models.products.CasePC;
 import onlineshop.models.products.PowerPC;
-import onlineshop.repositories.PowerPCRepository;
-import onlineshop.services.ProductService;
+import onlineshop.repositories.product_repositories.CasePCRepository;
+import onlineshop.repositories.product_repositories.PowerPCRepository;
+import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,31 +12,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class PowerPCService implements ProductService<PowerPC> {
-    private final PowerPCRepository powerPCRepository;
+public class PowerPCService extends ProductAbstractService<PowerPC, PowerPCRepository> {
 
-    @Override
-    public List<PowerPC> show() {
-        return powerPCRepository.findAll();
-    }
+	public PowerPCService(PowerPCRepository repository) {
+		super(repository);
+	}
 
-    @Override
-    public Optional<PowerPC> find(int id) {
-        return powerPCRepository.findById(id);
-    }
+	@Override
+	public List<PowerPC> show() {
+		return repository.findAll();
+	}
 
-    @Transactional
-    @Override
-    public void add(PowerPC powerPC) {
-        powerPCRepository.save(powerPC);
-    }
+	@Override
+	public Optional<PowerPC> find(int id) {
+		return repository.findById(id);
+	}
 
-    @Transactional
-    @Override
-    public void update(int id, PowerPC powerPC) {
-        powerPC.setId(id);
-        powerPCRepository.save(powerPC);
-    }
+	@Transactional
+	@Override
+	public void save(PowerPC powerPC) {
+		repository.save(powerPC);
+	}
+
+	@Transactional
+	@Override
+	public void update(int id, PowerPC powerPC) {
+		powerPC.setId(id);
+		repository.save(powerPC);
+	}
 }

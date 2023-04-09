@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import onlineshop.models.Product;
+import onlineshop.models.ProductAbstractEntity;
 
 import javax.persistence.*;
 
@@ -14,17 +14,13 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "Motherboard")
-public class Motherboard extends Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+public class Motherboard extends ProductAbstractEntity {
     @Column(name = "socket")
     private String socket; // CPU socket
     @Column(name = "chipset")
     private String chipset; // Chipset
     @Column(name = "ram")
-    private int ram; // Max RAM
+    private String ram; // Max RAM
     @Column(name = "form")
     private String form; // Form-factor motherboard *** ATX *** MicroATX *** MiniATX ***
 }

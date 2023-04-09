@@ -1,24 +1,17 @@
 package onlineshop.models.products;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import onlineshop.models.Product;
+import lombok.*;
+import onlineshop.models.ProductAbstractEntity;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @Entity
+@Builder
 @Table(name = "casepc")
-public class CasePC extends Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+public class CasePC extends ProductAbstractEntity {
     @Column(name = "form")
     private String form; // Product Form factor
     @Column(name = "coolers")

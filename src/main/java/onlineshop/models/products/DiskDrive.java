@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import onlineshop.models.Product;
+import onlineshop.models.ProductAbstractEntity;
 
 import javax.persistence.*;
 
@@ -13,12 +13,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "DiskDrive")
-public class DiskDrive extends Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+@Table(name = "hdd")
+public class DiskDrive extends ProductAbstractEntity {
     @Column(name = "capacity")
-    private int capacity; // Capacity disk drive
+    private String capacity; // Capacity disk drive
 }

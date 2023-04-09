@@ -1,9 +1,10 @@
 package onlineshop.services.product_services;
 
-import lombok.RequiredArgsConstructor;
+import onlineshop.models.products.CasePC;
 import onlineshop.models.products.RAM;
-import onlineshop.repositories.RAMRepository;
-import onlineshop.services.ProductService;
+import onlineshop.repositories.product_repositories.CasePCRepository;
+import onlineshop.repositories.product_repositories.RAMRepository;
+import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,31 +12,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class RAMService implements ProductService<RAM> {
-    private final RAMRepository ramRepository;
+public class RAMService extends ProductAbstractService<RAM, RAMRepository> {
 
-    @Override
-    public List<RAM> show() {
-        return ramRepository.findAll();
-    }
+	public RAMService(RAMRepository repository) {
+		super(repository);
+	}
 
-    @Override
-    public Optional<RAM> find(int id) {
-        return ramRepository.findById(id);
-    }
+	@Override
+	public List<RAM> show() {
+		return repository.findAll();
+	}
 
-    @Transactional
-    @Override
-    public void add(RAM ram) {
-        ramRepository.save(ram);
-    }
+	@Override
+	public Optional<RAM> find(int id) {
+		return repository.findById(id);
+	}
 
-    @Transactional
-    @Override
-    public void update(int id, RAM ram) {
-        ram.setId(id);
-        ramRepository.save(ram);
-    }
+	@Transactional
+	@Override
+	public void save(RAM ram) {
+		repository.save(ram);
+	}
+
+	@Transactional
+	@Override
+	public void update(int id, RAM ram) {
+		ram.setId(id);
+		repository.save(ram);
+	}
 }

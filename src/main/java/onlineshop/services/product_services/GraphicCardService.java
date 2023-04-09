@@ -1,9 +1,10 @@
 package onlineshop.services.product_services;
 
-import lombok.RequiredArgsConstructor;
+import onlineshop.models.products.CasePC;
 import onlineshop.models.products.GraphicCard;
-import onlineshop.repositories.GraphicCardRepository;
-import onlineshop.services.ProductService;
+import onlineshop.repositories.product_repositories.CasePCRepository;
+import onlineshop.repositories.product_repositories.GraphicCardRepository;
+import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,31 +12,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class GraphicCardService implements ProductService<GraphicCard> {
-    private final GraphicCardRepository graphicCardRepository;
+public class GraphicCardService extends ProductAbstractService<GraphicCard, GraphicCardRepository> {
 
-    @Override
-    public List<GraphicCard> show() {
-        return graphicCardRepository.findAll();
-    }
+	public GraphicCardService(GraphicCardRepository repository) {
+		super(repository);
+	}
 
-    @Override
-    public Optional<GraphicCard> find(int id) {
-        return graphicCardRepository.findById(id);
-    }
+	@Override
+	public List<GraphicCard> show() {
+		return repository.findAll();
+	}
 
-    @Transactional
-    @Override
-    public void add(GraphicCard graphicCard) {
-        graphicCardRepository.save(graphicCard);
-    }
+	@Override
+	public Optional<GraphicCard> find(int id) {
+		return repository.findById(id);
+	}
 
-    @Transactional
-    @Override
-    public void update(int id, GraphicCard graphicCard) {
-        graphicCard.setId(id);
-        graphicCardRepository.save(graphicCard);
-    }
+	@Transactional
+	@Override
+	public void save(GraphicCard graphicCard) {
+		repository.save(graphicCard);
+	}
+
+	@Transactional
+	@Override
+	public void update(int id, GraphicCard graphicCard) {
+		graphicCard.setId(id);
+		repository.save(graphicCard);
+	}
 }

@@ -1,14 +1,10 @@
 package onlineshop.utils;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import onlineshop.models.ProductNamesEnum;
 import onlineshop.models.products.*;
-import onlineshop.services.ProductService;
+import onlineshop.services.CommonService;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.*;
 
@@ -16,24 +12,18 @@ import java.util.*;
 @RequiredArgsConstructor
 public class PageNameValidator {
     public final ModelUtils modelUtils;
-    public final ProductService<CPU> cpuProductService;
-    public final ProductService<Motherboard> motherboardProductService;
-    public final ProductService<GraphicCard> graphicCardProductService;
-    public final ProductService<RAM> ramProductService;
-    public final ProductService<PowerPC> powerPCProductService;
-    public final ProductService<CasePC> casePCProductService;
-    public final ProductService<DiskDrive> diskDriveProductService;
-    public final ProductService<SSD> ssdProductService;
+    public final CommonService<CPU> cpuProductService;
+    public final CommonService<Motherboard> motherboardProductService;
+    public final CommonService<GraphicCard> graphicCardProductService;
+    public final CommonService<RAM> ramProductService;
+    public final CommonService<PowerPC> powerPCProductService;
+    public final CommonService<CasePC> casePCProductService;
+    public final CommonService<DiskDrive> diskDriveProductService;
+    public final CommonService<SSD> ssdProductService;
 
 
-    public void processPageRequest(String page, Model model) {
-        ProductService productService = compareStringInput(page, model);
-        modelUtils.createModelForProductsAndTheirPhotos(model, productService, 120, 110);
-    }
-
-
-    public ProductService compareStringInput(String page, Model model) {
-        EnumMap<ProductNamesEnum, ProductService<?>> productServiceMap = new EnumMap<>(ProductNamesEnum.class);
+    public CommonService compareStringInput(String page) {
+        EnumMap<ProductNamesEnum, CommonService<?>> productServiceMap = new EnumMap<>(ProductNamesEnum.class);
         productServiceMap.put(ProductNamesEnum.cpu, cpuProductService);
         productServiceMap.put(ProductNamesEnum.motherboard, motherboardProductService);
         productServiceMap.put(ProductNamesEnum.graphic_card, graphicCardProductService);

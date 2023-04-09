@@ -10,7 +10,7 @@
     <header class="header">
         <div class="container">
             <div class="header__title">
-                <div class="header__name">SKLAD</div>
+                <div class="header__name"><a href="/">SKLAD</a></div>
                 <form class="header__search">
                     <div class="search__place">
                         <input type="text" placeholder="Search"></div>
@@ -45,49 +45,49 @@
                 <div class="main__navigation">
                     <a class="navigation__item" th:href="@{/{page}(page=cpu)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/cpu-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/cpu-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">CPU</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=motherboard)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/motherboard-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/motherboard-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">Motherboard</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=graphic_card)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/video-card-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/video-card-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">Graphic card</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=ram)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/ram-memory-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/ram-memory-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">RAM</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=power_pc)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/power-supply-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/power-supply-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">Power PC</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=case_pc)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/pc-case-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/pc-case-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">PC case</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=hdd)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/hdd-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/hdd-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">HDD</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=ssd)}">
                         <div class="item__icon">
-                            <img src="/img/navigation/ssd-image.svg" width="55px" height="55px">
+                            <img src="/img/main/navigation/ssd-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">SSD</div>
                     </a>
@@ -96,18 +96,19 @@
                     <div class="products__filters">
                         <div class="filters__row">
                             <div class="filters__title">Фильтры</div>
-                            <div class="filters__content">Контент</div>
+                            <div class="filters__content">Контент
+                            </div>
                         </div>
                     </div>
                     <div class="products__content">
                         <div class="products__row">
                             <div class="products__title">
                                 <div class="title">
-                                    <div class="title__text" th:text="${cases.get(0).getTitle()}+s"></div>
+                                    <div class="title__text" th:text="${component.get(0).getTitle()}+s"></div>
                                 </div>
                             </div>
                             <div class="products__info">
-                                <form th:method="GET" th:object="${cases}">
+                                <form th:method="GET" th:object="${component}">
                                     <div class="info">
                                         <div class="info__row">
                                             <a class="info__reference" href="#">
@@ -115,14 +116,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(0).getImage()}"
+                                                                <img th:src="${component.get(0).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(0).getSubtitle()}"></div>
+                                                                 th:text="${component.get(0).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(0).getPrice()}"></div>
+                                                                 th:text="${component.get(0).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,14 +133,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(1).getImage()}"
+                                                                <img th:src="${component.get(1).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(1).getSubtitle()}"></div>
+                                                                 th:text="${component.get(1).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(1).getPrice()}"></div>
+                                                                 th:text="${component.get(1).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,14 +150,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(2).getImage()}"
+                                                                <img th:src="${component.get(2).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(2).getSubtitle()}"></div>
+                                                                 th:text="${component.get(2).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(2).getPrice()}"></div>
+                                                                 th:text="${component.get(2).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,14 +167,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(3).getImage()}"
+                                                                <img th:src="${component.get(3).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(3).getSubtitle()}"></div>
+                                                                 th:text="${component.get(3).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(3).getPrice()}"></div>
+                                                                 th:text="${component.get(3).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -183,14 +184,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(4).getImage()}"
+                                                                <img th:src="${component.get(4).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(4).getSubtitle()}"></div>
+                                                                 th:text="${component.get(4).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(5).getPrice()}"></div>
+                                                                 th:text="${component.get(5).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -200,14 +201,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(5).getImage()}"
+                                                                <img th:src="${component.get(5).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(5).getSubtitle()}"></div>
+                                                                 th:text="${component.get(5).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(5).getPrice()}"></div>
+                                                                 th:text="${component.get(5).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -217,14 +218,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(6).getImage()}"
+                                                                <img th:src="${component.get(6).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(6).getSubtitle()}"></div>
+                                                                 th:text="${component.get(6).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(6).getPrice()}"></div>
+                                                                 th:text="${component.get(6).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -234,14 +235,14 @@
                                                     <div class="info__component">
                                                         <div class="component__row">
                                                             <div class="component__image">
-                                                                <img th:src="${cases.get(7).getImage()}"
+                                                                <img th:src="${component.get(7).getImage()}"
                                                                      th:width="${width}"
                                                                      th:height="${height}">
                                                             </div>
                                                             <div class="component__title"
-                                                                 th:text="${cases.get(7).getSubtitle()}"></div>
+                                                                 th:text="${component.get(7).getSubtitle()}"></div>
                                                             <div class="component__price"
-                                                                 th:text="${cases.get(7).getPrice()}"></div>
+                                                                 th:text="${component.get(7).getPrice()}"></div>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -1,9 +1,10 @@
 package onlineshop.services.product_services;
 
-import lombok.RequiredArgsConstructor;
 import onlineshop.models.products.CPU;
-import onlineshop.repositories.CPURepository;
-import onlineshop.services.ProductService;
+import onlineshop.models.products.CasePC;
+import onlineshop.repositories.product_repositories.CPURepository;
+import onlineshop.repositories.product_repositories.CasePCRepository;
+import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,31 +12,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class CPUService implements ProductService<CPU> {
-    private final CPURepository cpuRepository;
+public class CPUService extends ProductAbstractService<CPU, CPURepository> {
 
-    @Override
-    public List<CPU> show() {
-        return cpuRepository.findAll();
-    }
+	public CPUService(CPURepository repository) {
+		super(repository);
+	}
 
-    @Override
-    public Optional<CPU> find(int id) {
-        return cpuRepository.findById(id);
-    }
+	@Override
+	public List<CPU> show() {
+		return repository.findAll();
+	}
 
-    @Transactional
-    @Override
-    public void add(CPU cpu) {
-        cpuRepository.save(cpu);
-    }
+	@Override
+	public Optional<CPU> find(int id) {
+		return repository.findById(id);
+	}
 
-    @Transactional
-    @Override
-    public void update(int id, CPU cpu) {
-        cpu.setId(id);
-        cpuRepository.save(cpu);
-    }
+	@Transactional
+	@Override
+	public void save(CPU cpu) {
+		repository.save(cpu);
+	}
+
+	@Transactional
+	@Override
+	public void update(int id, CPU cpu) {
+		cpu.setId(id);
+		repository.save(cpu);
+	}
 }

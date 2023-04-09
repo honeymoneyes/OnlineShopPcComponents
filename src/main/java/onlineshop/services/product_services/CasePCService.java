@@ -1,10 +1,9 @@
 package onlineshop.services.product_services;
 
-import lombok.RequiredArgsConstructor;
 import onlineshop.models.products.CasePC;
-import onlineshop.repositories.CasePCRepository;
-import onlineshop.services.ProductService;
-import org.springframework.stereotype.Component;
+import onlineshop.repositories.product_repositories.CasePCRepository;
+import onlineshop.services.CommonService;
+import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,31 +11,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class CasePCService implements ProductService<CasePC> {
-    private final CasePCRepository casePCRepository;
+public class CasePCService extends ProductAbstractService<CasePC, CasePCRepository> {
 
-    @Override
-    public List<CasePC> show() {
-        return casePCRepository.findAll();
-    }
+	public CasePCService(CasePCRepository repository) {
+		super(repository);
+	}
 
-    @Override
-    public Optional<CasePC> find(int id) {
-        return casePCRepository.findById(id);
-    }
+	@Override
+	public List<CasePC> show() {
+		return repository.findAll();
+	}
 
-    @Transactional
-    @Override
-    public void add(CasePC casePC) {
-        casePCRepository.save(casePC);
-    }
+	@Override
+	public Optional<CasePC> find(int id) {
+		return repository.findById(id);
+	}
 
-    @Transactional
-    @Override
-    public void update(int id, CasePC casePC) {
-        casePC.setId(id);
-        casePCRepository.save(casePC);
-    }
+	@Transactional
+	@Override
+	public void save(CasePC casePC) {
+		repository.save(casePC);
+	}
+
+	@Transactional
+	@Override
+	public void update(int id, CasePC casePC) {
+		casePC.setId(id);
+		repository.save(casePC);
+	}
 }

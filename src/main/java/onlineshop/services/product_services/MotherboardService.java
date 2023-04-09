@@ -1,9 +1,10 @@
 package onlineshop.services.product_services;
 
-import lombok.RequiredArgsConstructor;
+import onlineshop.models.products.CasePC;
 import onlineshop.models.products.Motherboard;
-import onlineshop.repositories.MotherboardRepository;
-import onlineshop.services.ProductService;
+import onlineshop.repositories.product_repositories.CasePCRepository;
+import onlineshop.repositories.product_repositories.MotherboardRepository;
+import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,31 +12,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MotherboardService implements ProductService<Motherboard> {
-    private final MotherboardRepository motherboardRepository;
+public class MotherboardService extends ProductAbstractService<Motherboard, MotherboardRepository> {
 
-    @Override
-    public List<Motherboard> show() {
-        return motherboardRepository.findAll();
-    }
+	public MotherboardService(MotherboardRepository repository) {
+		super(repository);
+	}
 
-    @Override
-    public Optional<Motherboard> find(int id) {
-        return motherboardRepository.findById(id);
-    }
+	@Override
+	public List<Motherboard> show() {
+		return repository.findAll();
+	}
 
-    @Transactional
-    @Override
-    public void add(Motherboard motherboard) {
-        motherboardRepository.save(motherboard);
-    }
+	@Override
+	public Optional<Motherboard> find(int id) {
+		return repository.findById(id);
+	}
 
-    @Transactional
-    @Override
-    public void update(int id, Motherboard motherboard) {
-        motherboard.setId(id);
-        motherboardRepository.save(motherboard);
-    }
+	@Transactional
+	@Override
+	public void save(Motherboard motherboard) {
+		repository.save(motherboard);
+	}
+
+	@Transactional
+	@Override
+	public void update(int id, Motherboard motherboard) {
+		motherboard.setId(id);
+		repository.save(motherboard);
+	}
 }

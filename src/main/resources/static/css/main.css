@@ -114,6 +114,9 @@ body {
   font-size: 36px;
   text-shadow: 0 0 10px black;
 }
+.header__name a:visited {
+  color: white;
+}
 .header__search {
   margin-left: 185px;
   position: relative;
@@ -201,8 +204,8 @@ body {
   border: 2px solid white;
   background: rgba(255, 210, 237, 0.37);
   padding: 5px 0 0 0;
-  -webkit-box-shadow: 0 2px 3px black;
-          box-shadow: 0 2px 3px black;
+  -webkit-box-shadow: 0 2px 10px black;
+          box-shadow: 0 2px 10px black;
   border-radius: 25px;
   height: 670px;
 }
@@ -213,21 +216,22 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 1172px;
+  max-width: 1170px;
   margin: 20px 0 35px 20px;
   border-radius: 20px;
 }
 .main__products {
-  border-radius: 30px;
+  overflow: hidden;
+  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: -10px 20px 20px 20px;
-  -webkit-box-shadow: 0 2px 7px black;
-          box-shadow: 0 2px 7px black;
+  -webkit-box-shadow: 0 2px 15px black;
+          box-shadow: 0 2px 15px black;
   width: 1160px;
   height: 480px;
-  border: 2px solid white;
+  border: 3px solid white;
 }
 
 .navigation__item {
