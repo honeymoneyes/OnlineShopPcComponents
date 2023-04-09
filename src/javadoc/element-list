@@ -1,0 +1,9 @@
+onlineshop
+onlineshop.controllers
+onlineshop.models
+onlineshop.models.products
+onlineshop.repositories
+onlineshop.repositories.product_repositories
+onlineshop.services
+onlineshop.services.product_services
+onlineshop.utils
