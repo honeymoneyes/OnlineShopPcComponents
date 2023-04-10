@@ -18,7 +18,7 @@ public class PageNameValidator {
     public final CommonService<RAM> ramProductService;
     public final CommonService<PowerPC> powerPCProductService;
     public final CommonService<CasePC> casePCProductService;
-    public final CommonService<DiskDrive> diskDriveProductService;
+    public final CommonService<HDD> HDDProductService;
     public final CommonService<SSD> ssdProductService;
 
 
@@ -30,7 +30,7 @@ public class PageNameValidator {
         productServiceMap.put(ProductNamesEnum.ram, ramProductService);
         productServiceMap.put(ProductNamesEnum.power_pc, powerPCProductService);
         productServiceMap.put(ProductNamesEnum.case_pc, casePCProductService);
-        productServiceMap.put(ProductNamesEnum.hdd, diskDriveProductService);
+        productServiceMap.put(ProductNamesEnum.hdd, HDDProductService);
         productServiceMap.put(ProductNamesEnum.ssd, ssdProductService);
 
         return Optional

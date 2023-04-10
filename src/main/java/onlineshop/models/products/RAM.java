@@ -15,6 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "RAM")
 public class RAM extends ProductAbstractEntity {
+    @Transient
+    private String name = "ram";
     @Column(name = "ddr")
     private String ddr; // DDR RAM - 2 - 3 - 4 - 5
     @Column(name = "capacity")

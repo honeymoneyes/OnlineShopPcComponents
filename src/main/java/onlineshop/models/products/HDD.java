@@ -14,7 +14,9 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "hdd")
-public class DiskDrive extends ProductAbstractEntity {
+public class HDD extends ProductAbstractEntity {
+    @Transient
+    private String name = "hdd";
     @Column(name = "capacity")
     private String capacity; // Capacity disk drive
 }

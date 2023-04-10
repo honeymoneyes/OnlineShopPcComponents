@@ -15,6 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Motherboard")
 public class Motherboard extends ProductAbstractEntity {
+    @Transient
+    private String name = "motherboard";
     @Column(name = "socket")
     private String socket; // CPU socket
     @Column(name = "chipset")

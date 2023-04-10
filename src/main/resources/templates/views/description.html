@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/description.css">
+    <title>PC components</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__title">
+                <div class="header__name">SKLAD</div>
+                <form class="header__search">
+                    <div class="search__place">
+                        <input type="text" placeholder="Search"></div>
+                    <div class="search__button"></div>
+                    <a href="#" class="search__icon">
+                        <img src="/static/img/header/loupe_2.svg" width="15px" height="15px">
+                    </a>
+                </form>
+                <div class="header__navbar">
+                    <a href="#" class="navbar__link">
+                        <div class="navbar__info">ABOUT</div>
+                    </a>
+                    <a href="#" class="navbar__link">
+                        <div class="navbar__info">CONTACT</div>
+                    </a>
+                    <a href="#" class="navbar__link">
+                        <div class="navbar__info">WORK</div>
+                    </a>
+                    <a href="/basket" class="navbar__link">
+                        <div class="navbar__info">
+                            <img src="/static/img/header/cart-image.svg" width="65" height="65">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="header__image"></div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__row">
+                <div class="main__navigation">
+                    <a class="navigation__item" th:href="@{/{page}(page=cpu)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/cpu-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">CPU</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=motherboard)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/motherboard-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">Motherboard</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=graphic_card)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/video-card-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">Graphic card</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=ram)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/ram-memory-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">RAM</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=power_pc)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/power-supply-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">Power PC</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=case_pc)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/pc-case-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">PC case</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=hdd)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/hdd-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">HDD</div>
+                    </a>
+                    <a class="navigation__item" th:href="@{/{page}(page=ssd)}">
+                        <div class="item__icon">
+                            <img src="/static/img/main/navigation/ssd-image.svg" width="55px" height="55px">
+                        </div>
+                        <div class="item__title">SSD</div>
+                    </a>
+                </div>
+                <div class="main__products" >
+                    <div class="products__row" th:object="${product}">
+                        <div class="products__photo">
+                            <img th:src="${product.getImage()}" width="350px" height="350px"/>
+                        </div>
+                        <div class="products__description">
+                            <div class="description_row">
+                                <div class="description__title" th:text="${product.getTitle()}">title</div>
+                                <div class="description__subtitle" th:text="${product.getSubtitle()}">subtitle</div>
+                                <div th:switch="${product.getName()}">
+                                    <div th:case="cpu">
+                                        <div class="description__subtitle">Socket: <span
+                                                th:text="${product.getSocket()}"></span></div>
+                                        <div class="description__subtitle">Core: <span
+                                                th:text="${product.getCore()}"></span></div>
+                                        <div class="description__subtitle">Frequency Max: <span
+                                                th:text="${product.getFrequency_max()}"></span></div>
+                                        <div class="description__subtitle">TDP: <span
+                                                th:text="${product.getTDP()}"></span></div>
+                                    </div>
+                                    <div th:case="motherboard">
+                                        <div class="description__subtitle">Socket: <span
+                                                th:text="${product.getSocket()}"></span></div>
+                                        <div class="description__subtitle">Chipset: <span
+                                                th:text="${product.getChipset()}"></span></div>
+                                        <div class="description__subtitle">Ram: <span
+                                                th:text="${product.getRam()}"></span></div>
+                                        <div class="description__subtitle">Form: <span
+                                                th:text="${product.getForm()}"></span></div>
+                                    </div>
+                                    <div th:case="graphic_card">
+                                        <div class="description__subtitle">Frequency: <span
+                                                th:text="${product.getFrequency()}"></span></div>
+                                        <div class="description__subtitle">Memory: <span
+                                                th:text="${product.getMemory()}"></span></div>
+                                    </div>
+                                    <div th:case="ram">
+                                        <div class="description__subtitle">Type: <span
+                                                th:text="${product.getDdr()}"></span></div>
+                                        <div class="description__subtitle">Capacity: <span
+                                                th:text="${product.getCapacity()}"></span></div>
+                                        <div class="description__subtitle">Frequency: <span
+                                                th:text="${product.getFrequency()}"></span></div>
+                                    </div>
+                                    <div th:case="power_pc">
+                                        <div class="description__subtitle">Power: <span
+                                                th:text="${product.getPower()}"></span></div>
+                                    </div>
+                                    <div th:case="case_pc">
+                                        <div class="description__subtitle">Form: <span
+                                                th:text="${product.getForm()}"></span></div>
+                                        <div class="description__subtitle">Coolers: <span
+                                                th:text="${product.getCoolers()}"></span></div>
+                                    </div>
+                                    <div th:case="hdd">
+                                        <div class="description__subtitle">Capacity: <span
+                                                th:text="${product.getCapacity()}"></span></div>
+                                    </div>
+                                    <div th:case="ssd">
+                                        <div class="description__subtitle">Capacity: <span
+                                                th:text="${product.getCapacity()}"></span></div>
+                                    </div>
+                                </div>
+                                <div class="description__price" th:text="${product.getPrice()}">price</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__text">Design and functionality developed by Alexander Antonyuk</div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

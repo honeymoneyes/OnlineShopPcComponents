@@ -2,7 +2,7 @@
 <html lang="en" , xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/static/css/template.css">
     <title>PC components</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
                         <input type="text" placeholder="Search"></div>
                     <div class="search__button"></div>
                     <a href="#" class="search__icon">
-                        <img src="/img/header/loupe_2.svg" width="15px" height="15px">
+                        <img src="/static/img/header/loupe_2.svg" width="15px" height="15px">
                     </a>
                 </form>
                 <div class="header__navbar">
@@ -31,7 +31,7 @@
                     </a>
                     <a href="/basket" class="navbar__link">
                         <div class="navbar__info">
-                            <img src="/img/header/cart-image.svg" width="65" height="65">
+                            <img src="/static/img/header/cart-image.svg" width="65" height="65">
                         </div>
                     </a>
                 </div>
@@ -45,49 +45,49 @@
                 <div class="main__navigation">
                     <a class="navigation__item" th:href="@{/{page}(page=cpu)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/cpu-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/cpu-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">CPU</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=motherboard)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/motherboard-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/motherboard-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">Motherboard</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=graphic_card)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/video-card-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/video-card-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">Graphic card</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=ram)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/ram-memory-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/ram-memory-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">RAM</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=power_pc)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/power-supply-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/power-supply-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">Power PC</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=case_pc)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/pc-case-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/pc-case-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">PC case</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=hdd)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/hdd-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/hdd-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">HDD</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=ssd)}">
                         <div class="item__icon">
-                            <img src="/img/main/navigation/ssd-image.svg" width="55px" height="55px">
+                            <img src="/static/img/main/navigation/ssd-image.svg" width="55px" height="55px">
                         </div>
                         <div class="item__title">SSD</div>
                     </a>
@@ -111,7 +111,7 @@
                                 <form th:method="GET" th:object="${component}">
                                     <div class="info">
                                         <div class="info__row">
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(0).getName()}, id=${component.get(0).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -128,7 +128,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(1).getName()}, id=${component.get(1).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -145,7 +145,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(2).getName()}, id=${component.get(2).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -162,7 +162,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(3).getName()}, id=${component.get(3).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -179,7 +179,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(4).getName()}, id=${component.get(4).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -196,7 +196,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(5).getName()}, id=${component.get(5).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -213,7 +213,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(6).getName()}, id=${component.get(6).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">
@@ -230,7 +230,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="info__reference" href="#">
+                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(7).getName()}, id=${component.get(7).getId()})}">
                                                 <div class="info__column">
                                                     <div class="info__component">
                                                         <div class="component__row">

@@ -14,6 +14,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "graphiccard")
 public class GraphicCard extends ProductAbstractEntity {
+    @Transient
+    private String name = "graphic_card";
     @Column(name = "model")
     private String model; // Model with GTX & RTX
     @Column(name = "frequency")

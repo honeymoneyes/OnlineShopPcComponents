@@ -15,6 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ssd")
 public class SSD extends ProductAbstractEntity {
+    @Transient
+    private String name = "ssd";
     @Column(name = "capacity")
     private String capacity; // Capacity disk drive
 }

@@ -16,6 +16,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cpu")
 public class CPU extends ProductAbstractEntity {
+    @Transient
+    private String name = "cpu";
     @Column(name = "socket")
     private String socket; // CPU socket
     @Column(name = "model")

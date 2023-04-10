@@ -15,7 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "PowerPC")
 public class PowerPC extends ProductAbstractEntity {
-    private int id;
+    @Transient
+    private String name = "power_pc";
     @Column(name = "power")
     private String power; // Power
 }

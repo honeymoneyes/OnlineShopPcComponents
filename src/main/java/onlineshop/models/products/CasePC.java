@@ -12,8 +12,10 @@ import javax.persistence.*;
 @Builder
 @Table(name = "casepc")
 public class CasePC extends ProductAbstractEntity {
-    @Column(name = "form")
-    private String form; // Product Form factor
-    @Column(name = "coolers")
-    private int coolers; // Number of coolers
+	@Transient
+	private String name = "case_pc";
+	@Column(name = "form")
+	private String form; // Product Form factor
+	@Column(name = "coolers")
+	private int coolers; // Number of coolers
 }
