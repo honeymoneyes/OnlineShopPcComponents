@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+$font-family_kaushan: "Kaushan Script";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+$font-family_montserrat: "Montserrat";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+$font-family_lato: "Lato";
+/*//////////////////////////////////////*/
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*////////////////////////////////////////////////////*/
+body {
+  background-color: cadetblue;
+}
+.wrapper {
+  background: url("../img/main-image.jpg") 50%/cover no-repeat;
+  overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  min-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  &__title {
+	padding: 30px 45px 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+
+  &__name {
+	font-family: $font-family_montserrat;
+	color: white;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 36px;
+	text-shadow: 0 0 10px black;
+	a:visited {
+	  color: white;
+	}
+  }
+
+  &__search {
+	margin-left: 185px;
+	position: relative;
+  }
+
+  &__navbar {
+	display: flex;
+  }
+
+  &__image {
+	background-color: firebrick;
+	box-shadow: 0 0 10px black;
+	border-radius: 50px;
+	height: 20px;
+  }
+}
+
+.search {
+  &__place {
+	input {
+	  opacity: 0.5;
+	  padding: 0 0 0 15px;
+	  border-radius: 10px;
+	  width: 300px;
+	  height: 40px;
+
+	  &:hover {
+		opacity: 1;
+		box-shadow: 0 0 10px black;
+	  }
+
+	  &:focus {
+		opacity: 1;
+		box-shadow: 0 3px 10px black;
+	  }
+	}
+  }
+
+  &__icon {
+	opacity: 0.5;
+	display: block;
+	position: absolute;
+	top: 13px;
+	right: 20px;
+
+	&:hover {
+	  opacity: 1;
+	  transform: scale(1.1);
+	  transition: 100ms linear;
+	}
+
+	&:focus {
+	  opacity: 1;
+	}
+  }
+}
+
+.navbar {
+  &__link {
+	position: relative;
+	&:hover {
+	  color: salmon;
+	  font-size: 15px;
+	  transition: 100ms linear;
+	}
+
+	&:nth-child(4) {
+	  width: 65px;
+	  height: 65px;
+	  margin: -30px 0 0 0;
+
+	  &:hover {
+		transform: scale(1.1);
+		transition: 100ms linear;
+	  }
+	}
+  }
+
+  &__info {
+	color: white;
+	padding: 10px 0 0 0;
+	text-align: center;
+	width: 80px;
+	height: 30px;
+  }
+}
+
+.main {
+  margin: 20px 0 0 0;
+
+  &__row {
+	border: 2px solid white;
+	background: rgba(255, 210, 237, 0.37);
+	padding: 5px 0 0 0;
+	box-shadow: 0 2px 10px black;
+	border-radius: 25px;
+	height: 670px;
+  }
+
+  &__navigation {
+	display: flex;
+	justify-content: center;
+	max-width: 1170px;
+	margin: 20px 0 35px 20px;
+	border-radius: 20px;
+  }
+
+  &__products {
+	overflow: hidden;
+	border-radius: 20px;
+	display: flex;
+	margin: -10px 20px 20px 20px;
+	box-shadow: 0 2px 15px black;
+	width: 1160px;
+	height: 480px;
+	border: 3px solid white;
+  }
+}
+
+.navigation {
+  &__item {
+	border: 2px solid white;
+	box-shadow: 0 0 5px black;
+	background-color: lightblue;
+	font-family: $font-family_lato;
+	padding-top: 15px;
+	margin: 0 10px 0 0;
+	width: 150px;
+	height: 115px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: 700;
+
+	&:hover {
+	  width: 165px;
+	  background-color: rgba(167, 242, 252, 0.83);
+	  border: hidden;
+	  font-size: 20px;
+	  transition: 100ms linear;
+	  transform: scale(1.05);
+	}
+  }
+}
+
+.item {
+  &__icon {
+	text-align: center;
+  }
+
+  &__title {
+	color: white;
+	padding: 10px 0 0 0;
+	text-align: center;
+  }
+}
+
+.products {
+
+}
+
+.footer {
+  height: 110px;
+  padding-top: 2%;
+
+  &__text {
+	text-shadow: 0 0 10px black;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+	font-size: 40px;
+  }
+}
