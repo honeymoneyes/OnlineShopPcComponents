@@ -223,7 +223,7 @@ body {
 .main__products {
   overflow: hidden;
   border-radius: 20px;
-  margin: auto;
+  margin: -10px auto;
   -webkit-box-shadow: 0 2px 15px black;
           box-shadow: 0 2px 15px black;
   width: 960px;
@@ -275,29 +275,31 @@ body {
           align-items: center;
 }
 .products__photo {
-  -webkit-box-shadow: 0 2px 10px mediumslateblue;
-          box-shadow: 0 2px 10px mediumslateblue;
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
   overflow: hidden;
   border-radius: 20px;
   margin: -20px 0 0 100px;
   width: 350px;
   height: 350px;
-  border: 1px solid #000;
+  border: 2px solid white;
 }
 .products__description {
   text-align: center;
-  background-color: rgba(221, 223, 237, 0.73);
-  -webkit-box-shadow: 0 2px 10px mediumslateblue;
-          box-shadow: 0 2px 10px mediumslateblue;
+  background-color: navajowhite;
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
   border-radius: 20px;
   margin: 20px auto;
   width: 400px;
   height: 400px;
-  border: 1px solid #000;
+  border: 2px solid white;
 }
 
 .description_row {
+  color: white;
   font-family: "Montserrat";
+  text-shadow: 0 0 3px black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

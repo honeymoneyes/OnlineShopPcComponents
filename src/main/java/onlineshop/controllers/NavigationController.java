@@ -40,6 +40,7 @@ public class NavigationController {
 	public String goToPage(@PathVariable("page") String page, Model model) {
 		Model modelForProducts = pageRequestProcessor.processPageRequest(page);
 		model.addAllAttributes(modelForProducts.asMap());
+		model.addAttribute("search", "");
 		return "views/template";
 	}
 }

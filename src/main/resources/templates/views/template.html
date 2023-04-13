@@ -11,13 +11,12 @@
         <div class="container">
             <div class="header__title">
                 <div class="header__name"><a href="/">SKLAD</a></div>
-                <form class="header__search">
+                <form class="header__search" th:method="POST" th:action="@{/search}">
                     <div class="search__place">
                         <input type="text" placeholder="Search"></div>
-                    <div class="search__button"></div>
-                    <a href="#" class="search__icon">
+                    <button style="background-color: transparent" type="submit" class="search__icon">
                         <img src="/static/img/header/loupe_2.svg" width="15px" height="15px">
-                    </a>
+                    </button>
                 </form>
                 <div class="header__navbar">
                     <a href="#" class="navbar__link">
@@ -108,148 +107,28 @@
                                 </div>
                             </div>
                             <div class="products__info">
-                                <form th:method="GET" th:object="${component}">
-                                    <div class="info">
-                                        <div class="info__row">
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(0).getName()}, id=${component.get(0).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(0).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(0).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(0).getPrice()}"></div>
+                                <div class="info">
+                                    <div class="info__row">
+                                        <a class="info__reference" th:href="@{/{page}/{id}(page=${product.getName()},
+                                        id=${product.getId()})}" th:each="product : ${component}">
+                                            <div class="info__column">
+                                                <div class="info__component">
+                                                    <div class="component__row">
+                                                        <div class="component__image">
+                                                            <img th:src="${product.getImage()}"
+                                                                 th:width="${width}"
+                                                                 th:height="${height}">
                                                         </div>
+                                                        <div class="component__title"
+                                                             th:text="${product.getSubtitle()}"></div>
+                                                        <div class="component__price"
+                                                             th:text="${product.getPrice()}"></div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(1).getName()}, id=${component.get(1).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(1).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(1).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(1).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(2).getName()}, id=${component.get(2).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(2).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(2).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(2).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(3).getName()}, id=${component.get(3).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(3).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(3).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(3).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(4).getName()}, id=${component.get(4).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(4).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(4).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(5).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(5).getName()}, id=${component.get(5).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(5).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(5).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(5).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(6).getName()}, id=${component.get(6).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(6).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(6).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(6).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a class="info__reference" th:href="@{/{page}/{id}(page=${component.get(7).getName()}, id=${component.get(7).getId()})}">
-                                                <div class="info__column">
-                                                    <div class="info__component">
-                                                        <div class="component__row">
-                                                            <div class="component__image">
-                                                                <img th:src="${component.get(7).getImage()}"
-                                                                     th:width="${width}"
-                                                                     th:height="${height}">
-                                                            </div>
-                                                            <div class="component__title"
-                                                                 th:text="${component.get(7).getSubtitle()}"></div>
-                                                            <div class="component__price"
-                                                                 th:text="${component.get(7).getPrice()}"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
