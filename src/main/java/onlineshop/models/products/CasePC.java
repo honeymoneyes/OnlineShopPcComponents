@@ -1,15 +1,18 @@
 package onlineshop.models.products;
 
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import onlineshop.models.ProductAbstractEntity;
-
-import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Builder
 @Table(name = "casepc")
 public class CasePC extends ProductAbstractEntity {
 	@Transient

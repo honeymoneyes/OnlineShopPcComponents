@@ -17,6 +17,7 @@ public class HDDService extends ProductAbstractService<HDD, HDDRepository> {
 		super(repository);
 	}
 
+	//CRUD methods
 	@Override
 	public List<HDD> show() {
 		return repository.findAll();
@@ -38,5 +39,32 @@ public class HDDService extends ProductAbstractService<HDD, HDDRepository> {
 	public void update(int id, HDD HDD) {
 		HDD.setId(id);
 		repository.save(HDD);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	public List<Integer> showUniqueCapacity() {
+		return repository.getUniqueCapacity();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

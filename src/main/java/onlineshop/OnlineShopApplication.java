@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OnlineShopApplication {
 	/**
 	 * Here is the starting point of my program
+	 *
 	 * @param args command line values
 	 */
 	public static void main(String[] args) {

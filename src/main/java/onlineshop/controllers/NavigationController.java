@@ -1,6 +1,8 @@
 package onlineshop.controllers;
 
 import lombok.RequiredArgsConstructor;
+import onlineshop.models.products.CPU;
+import onlineshop.services.CommonService;
 import onlineshop.utils.ModelUtils;
 import onlineshop.utils.PageNameValidator;
 import onlineshop.utils.PageRequestProcessor;
@@ -17,16 +19,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequiredArgsConstructor
 public class NavigationController {
 	public final PageNameValidator pageNameValidator;
-	public final ModelUtils modelUtils;
+	public final CommonService<CPU> cpuCommonService;
 	public final PageRequestProcessor pageRequestProcessor;
 
 	@GetMapping("favicon.ico")
 	@ResponseBody
 	void returnNoFavicon() {
 	}
+
 	@GetMapping()
 	public String main() {
 		return "views/main";
+	}
+
+	@GetMapping("/test")
+	public void test() {
+		cpuCommonService.showUniqueBrand().forEach(System.out::println);
 	}
 
 	@GetMapping("/{page}/{id}")

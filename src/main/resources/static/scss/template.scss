@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   background-color: cadetblue;
 }
+
 .wrapper {
   background: url("../img/main-image.jpg") 50%/cover no-repeat;
   overflow: hidden;
@@ -112,6 +113,7 @@ body {
 	font-style: normal;
 	font-size: 36px;
 	text-shadow: 0 0 10px black;
+
 	a:visited {
 	  color: white;
 	}
@@ -178,6 +180,7 @@ body {
 .navbar {
   &__link {
 	position: relative;
+
 	&:hover {
 	  color: salmon;
 	  font-size: 15px;
@@ -214,7 +217,7 @@ body {
 	padding: 5px 0 0 0;
 	box-shadow: 0 2px 10px black;
 	border-radius: 25px;
-	height: 670px;
+	height: auto;
   }
 
   &__navigation {
@@ -232,7 +235,6 @@ body {
 	margin: -10px 20px 20px 20px;
 	box-shadow: 0 2px 15px black;
 	width: 1160px;
-	height: 480px;
 	border: 3px solid white;
   }
 }
@@ -276,12 +278,13 @@ body {
 
 .products {
   &__filters {
+	margin: 10px 0 10px 10px;
 	text-align: center;
 	width: 200px;
-	height: 470px;
   }
 
   &__row {
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -290,46 +293,195 @@ body {
   &__content {
 	text-align: center;
 	width: 960px;
-	height: 480px;
+	height: auto;
   }
 
   &__title {
+	padding: 0 10px 0 10px ;
 	text-align: center;
 	width: 945px;
-	height: 50px;
+	height: auto;
   }
 
   &__info {
+	margin: -10px 0 0 0 ;
+	padding: 0 10px 0 10px ;
 	text-align: center;
 	width: 945px;
-	height: 429px;
+	height: auto;
   }
 }
 
 .filters {
   &__row {
-	margin-left: 10px;
-	padding: 17px 10px;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
   }
 
   &__title {
+	margin: 5px 0 22px 0;
+	width: 200px;
 	box-shadow: 0 1px 5px black;
 	background-color: rgba(255, 255, 255, 0.65);
 	border: 1px solid #000;
 	border-radius: 10px;
-	height: 35px;
+	height: 38px;
+
+	h2 {
+	  margin: 5px 0 0 0;
+	  font-size: 20px;
+	  font-weight: 700;
+	}
   }
 
   &__content {
+	width: 200px;
+	min-height: 398px;
+	height: auto;
 	box-shadow: 0 1px 5px black;
 	background-color: rgba(255, 255, 255, 0.65);
-	margin: 15px 0 0 0;
 	border: 1px solid #000;
 	border-radius: 10px;
-	flex: 1 0 auto;
+  }
+}
+
+.content {
+  &__row {
+	height: auto;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 10px 0 0 0;
+  }
+
+  &__brand {
+
+	select {
+	  box-shadow: 0 0 2px black;
+	  padding: 3px;
+	  font-size: 16px;
+	  margin: 10px 0 0 0;
+	  width: 150px;
+
+	  option {
+		border-radius: 15px;
+		text-align: center;
+	  }
+	}
+  }
+
+  &__model {
+	margin: 10px 0 0 0;
+
+	select {
+	  box-shadow: 0 0 2px black;
+	  padding: 3px;
+	  font-size: 16px;
+	  margin: 10px 0 0 0;
+	  width: 150px;
+
+	  option {
+		border-radius: 15px;
+		text-align: center;
+	  }
+	}
+  }
+
+  &__element {
+	margin: 10px 0 0 0;
+
+	span {
+	  display: block;
+	  font-size: 18px;
+	  font-weight: 600;
+	}
+
+	select {
+	  box-shadow: 0 0 2px black;
+	  padding: 2px;
+	  margin: 0 0 0 3px;
+	  font-size: 14px;
+	}
+  }
+
+  &__price {
+	margin: 10px 0 0 0;
+
+	span {
+	  display: block;
+	  font-size: 18px;
+	  font-weight: 600;
+	}
+
+	select {
+	  box-shadow: 0 0 2px black;
+	  padding: 2px;
+	  margin: 0 0 0 3px;
+	  font-size: 14px;
+	}
+  }
+
+  &__button {
+	color: white;
+	background-color: orange;
+	letter-spacing: 1px;
+	width: 100px;
+	display: block;
+	border: 1px solid #000;
+	margin: 25px auto;
+	padding: 5px;
+	border-radius: 15px;
+
+	&:visited {
+	  color: black;
+	}
+
+	&:hover {
+	  box-shadow: 0 2px 5px black;
+	}
+
+	&:active {
+	  box-shadow: 0 4px 5px black;
+	}
+  }
+}
+
+.element {
+  &__single-element {
+	margin: 10px 0;
+
+	select {
+	  margin: 5px 0 0 0;
+	}
+  }
+
+  &__dual-element {
+	margin: 5px 0 0 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	span:nth-child(1) {
+	  padding: 0 5px 0 0;
+	}
+
+	span:nth-child(2) {
+	  margin: 0 10px 0 0;
+	}
+  }
+}
+
+.price {
+  &__element {
+	margin: 5px 0 0 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	span:nth-child(1) {
+	  padding: 0 5px 0 0;
+	}
+
+	span:nth-child(2) {
+	  margin: 0 10px 0 0;
+	}
   }
 }
 

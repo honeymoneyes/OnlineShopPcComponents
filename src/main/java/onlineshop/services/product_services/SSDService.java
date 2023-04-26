@@ -1,8 +1,6 @@
 package onlineshop.services.product_services;
 
-import onlineshop.models.products.CasePC;
 import onlineshop.models.products.SSD;
-import onlineshop.repositories.product_repositories.CasePCRepository;
 import onlineshop.repositories.product_repositories.SSDRepository;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
@@ -17,14 +15,10 @@ public class SSDService extends ProductAbstractService<SSD, SSDRepository> {
 		super(repository);
 	}
 
+	//CRUD methods
 	@Override
 	public List<SSD> show() {
 		return repository.findAll();
-	}
-
-	@Override
-	public Optional<SSD> find(int id) {
-		return repository.findById(id);
 	}
 
 	@Transactional
@@ -38,5 +32,37 @@ public class SSDService extends ProductAbstractService<SSD, SSDRepository> {
 	public void update(int id, SSD ssd) {
 		ssd.setId(id);
 		repository.save(ssd);
+	}
+
+	@Override
+	public Optional<SSD> find(int id) {
+		return repository.findById(id);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<Integer> showUniqueCapacity() {
+		return repository.getUniqueCapacity();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

@@ -286,7 +286,7 @@ body {
 }
 .products__description {
   text-align: center;
-  background-color: navajowhite;
+  background-color: rgba(164, 237, 215, 0.49);
   -webkit-box-shadow: 0 0 10px black;
           box-shadow: 0 0 10px black;
   border-radius: 20px;

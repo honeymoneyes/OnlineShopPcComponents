@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   background-color: cadetblue;
 }
+
 .wrapper {
   background: url("../img/main-image.jpg") 50%/cover no-repeat;
   overflow: hidden;
@@ -112,6 +113,7 @@ body {
 	font-style: normal;
 	font-size: 36px;
 	text-shadow: 0 0 10px black;
+
 	a:visited {
 	  color: white;
 	}
@@ -177,6 +179,7 @@ body {
 .navbar {
   &__link {
 	position: relative;
+
 	&:hover {
 	  color: salmon;
 	  font-size: 15px;

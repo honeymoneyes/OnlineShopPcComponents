@@ -1,8 +1,6 @@
 package onlineshop.services.product_services;
 
-import onlineshop.models.products.CasePC;
 import onlineshop.models.products.RAM;
-import onlineshop.repositories.product_repositories.CasePCRepository;
 import onlineshop.repositories.product_repositories.RAMRepository;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
@@ -19,6 +17,7 @@ public class RAMService extends ProductAbstractService<RAM, RAMRepository> {
 		super(repository);
 	}
 
+	//CRUD methods
 	@Override
 	public List<RAM> show() {
 		return repository.findAll();
@@ -40,5 +39,40 @@ public class RAMService extends ProductAbstractService<RAM, RAMRepository> {
 	public void update(int id, RAM ram) {
 		ram.setId(id);
 		repository.save(ram);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<String> showUniqueDdr() {
+		return repository.getUniqueDdr();
+	}
+
+	public List<Integer> showUniqueFrequency() {
+		return repository.getUniqueFrequency();
+	}
+
+	public List<String> showUniqueCapacity() {
+		return repository.getUniqueCapacity();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

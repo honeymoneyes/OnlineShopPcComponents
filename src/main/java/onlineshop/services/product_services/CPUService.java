@@ -1,9 +1,7 @@
 package onlineshop.services.product_services;
 
 import onlineshop.models.products.CPU;
-import onlineshop.models.products.CasePC;
 import onlineshop.repositories.product_repositories.CPURepository;
-import onlineshop.repositories.product_repositories.CasePCRepository;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +17,7 @@ public class CPUService extends ProductAbstractService<CPU, CPURepository> {
 		super(repository);
 	}
 
+	// CRUD methods
 	@Override
 	public List<CPU> show() {
 		return repository.findAll();
@@ -40,5 +39,48 @@ public class CPUService extends ProductAbstractService<CPU, CPURepository> {
 	public void update(int id, CPU cpu) {
 		cpu.setId(id);
 		repository.save(cpu);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<String> showUniqueSocket() {
+		return repository.getUniqueSocket();
+	}
+
+	public List<String> showUniqueFamily() {
+		return repository.getUniqueFamily();
+	}
+
+	public List<Integer> showUniqueCore() {
+		return repository.getUniqueCore();
+	}
+
+	public List<Double> showUniqueFrequency() {
+		return repository.getUniqueFrequency();
+	}
+
+	public List<Integer> showUniqueTdp() {
+		return repository.getUniqueTdp();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

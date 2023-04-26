@@ -1,8 +1,6 @@
 package onlineshop.services.product_services;
 
-import onlineshop.models.products.CasePC;
 import onlineshop.models.products.Motherboard;
-import onlineshop.repositories.product_repositories.CasePCRepository;
 import onlineshop.repositories.product_repositories.MotherboardRepository;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
@@ -19,6 +17,7 @@ public class MotherboardService extends ProductAbstractService<Motherboard, Moth
 		super(repository);
 	}
 
+	//CRUD methods
 	@Override
 	public List<Motherboard> show() {
 		return repository.findAll();
@@ -40,5 +39,44 @@ public class MotherboardService extends ProductAbstractService<Motherboard, Moth
 	public void update(int id, Motherboard motherboard) {
 		motherboard.setId(id);
 		repository.save(motherboard);
+	}
+
+	/********************************************/
+
+	//Filters method
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<String> showUniqueSocket() {
+		return repository.getUniqueSocket();
+	}
+
+	public List<String> showUniqueChipset() {
+		return repository.getUniqueChipset();
+	}
+
+	public List<Integer> showUniqueRam() {
+		return repository.getUniqueRam();
+	}
+
+	public List<String> showUniqueForm() {
+		return repository.getUniqueForm();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" , xmlns:th="http://www.thymeleaf.org">
+<html , lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/template.css">
+    <link href="/static/css/template.css" rel="stylesheet">
     <title>PC components</title>
 </head>
 <body>
@@ -11,26 +11,26 @@
         <div class="container">
             <div class="header__title">
                 <div class="header__name"><a href="/">SKLAD</a></div>
-                <form class="header__search" th:method="POST" th:action="@{/search}">
+                <form class="header__search" th:action="@{/search}" th:method="POST">
                     <div class="search__place">
-                        <input type="text" placeholder="Search"></div>
-                    <button style="background-color: transparent" type="submit" class="search__icon">
-                        <img src="/static/img/header/loupe_2.svg" width="15px" height="15px">
+                        <input placeholder="Search" type="text"></div>
+                    <button class="search__icon" style="background-color: transparent" type="submit">
+                        <img height="15px" src="/static/img/header/loupe_2.svg" width="15px">
                     </button>
                 </form>
                 <div class="header__navbar">
-                    <a href="#" class="navbar__link">
+                    <a class="navbar__link" href="#">
                         <div class="navbar__info">ABOUT</div>
                     </a>
-                    <a href="#" class="navbar__link">
+                    <a class="navbar__link" href="#">
                         <div class="navbar__info">CONTACT</div>
                     </a>
-                    <a href="#" class="navbar__link">
+                    <a class="navbar__link" href="#">
                         <div class="navbar__info">WORK</div>
                     </a>
-                    <a href="/basket" class="navbar__link">
+                    <a class="navbar__link" href="/basket">
                         <div class="navbar__info">
-                            <img src="/static/img/header/cart-image.svg" width="65" height="65">
+                            <img height="65" src="/static/img/header/cart-image.svg" width="65">
                         </div>
                     </a>
                 </div>
@@ -44,49 +44,49 @@
                 <div class="main__navigation">
                     <a class="navigation__item" th:href="@{/{page}(page=cpu)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/cpu-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/cpu-image.svg" width="55px">
                         </div>
                         <div class="item__title">CPU</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=motherboard)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/motherboard-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/motherboard-image.svg" width="55px">
                         </div>
                         <div class="item__title">Motherboard</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=graphic_card)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/video-card-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/video-card-image.svg" width="55px">
                         </div>
                         <div class="item__title">Graphic card</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=ram)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/ram-memory-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/ram-memory-image.svg" width="55px">
                         </div>
                         <div class="item__title">RAM</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=power_pc)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/power-supply-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/power-supply-image.svg" width="55px">
                         </div>
                         <div class="item__title">Power PC</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=case_pc)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/pc-case-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/pc-case-image.svg" width="55px">
                         </div>
                         <div class="item__title">PC case</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=hdd)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/hdd-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/hdd-image.svg" width="55px">
                         </div>
                         <div class="item__title">HDD</div>
                     </a>
                     <a class="navigation__item" th:href="@{/{page}(page=ssd)}">
                         <div class="item__icon">
-                            <img src="/static/img/main/navigation/ssd-image.svg" width="55px" height="55px">
+                            <img height="55px" src="/static/img/main/navigation/ssd-image.svg" width="55px">
                         </div>
                         <div class="item__title">SSD</div>
                     </a>
@@ -94,8 +94,518 @@
                 <div class="main__products">
                     <div class="products__filters">
                         <div class="filters__row">
-                            <div class="filters__title">Фильтры</div>
-                            <div class="filters__content">Контент
+                            <div class="filters__title">
+                                <h2>Filters</h2>
+                            </div>
+                            <div class="filters__content">
+                                <div class="content__row">
+                                    <div th:switch="${page}">
+                                        <div th:case="cpu" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <div class="element__single-element">
+                                                    <p>Socket</p>
+                                                    <select>
+                                                        <option th:each="socket : ${sockets}"
+                                                                th:text="${socket}"
+                                                                th:value="${socket}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Family</p>
+                                                    <select>
+                                                        <option th:each="family : ${families}"
+                                                                th:text="${family}"
+                                                                th:value="${family}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Core</p>
+                                                    <select>
+                                                        <option th:each="core : ${cores}"
+                                                                th:text="${core}"
+                                                                th:value="${core}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Frequency</p>
+                                                    <select>
+                                                        <option th:each="frequency : ${frequencies}"
+                                                                th:text="${frequency} + ' MHz'"
+                                                                th:value="${frequency}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>TDP</p>
+                                                    <select>
+                                                        <option th:each="tdp : ${tdps}"
+                                                                th:text="${tdp} + ' W'"
+                                                                th:value="${tdp}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="motherboard" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <div class="element__single-element">
+                                                    <p>Socket</p>
+                                                    <select>
+                                                        <option th:each="socket : ${sockets}"
+                                                                th:text="${socket}"
+                                                                th:value="${socket}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Chipset</p>
+                                                    <select>
+                                                        <option th:each="chipset : ${chipsets}"
+                                                                th:text="${chipset}"
+                                                                th:value="${chipset}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Ram</p>
+                                                    <select>
+                                                        <option th:each="ram : ${rams}"
+                                                                th:text="${ram} + ' GB'"
+                                                                th:value="${ram}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Form</p>
+                                                    <select>
+                                                        <option th:each="form : ${forms}"
+                                                                th:text="${form}"
+                                                                th:value="${form}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="graphic_card" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <div class="element__single-element">
+                                                    <p>Family</p>
+                                                    <select>
+                                                        <option th:each="family : ${families}"
+                                                                th:text="${family}"
+                                                                th:value="${family}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Frequency</p>
+                                                    <select>
+                                                        <option th:each="frequency : ${frequencies}"
+                                                                th:text="${frequency} + ' '+MHz"
+                                                                th:value="${frequency}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Memory</p>
+                                                    <select>
+                                                        <option th:each="memory : ${memories}"
+                                                                th:text="${memory} +' '+GB"
+                                                                th:value="${memory}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="ram" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <div class="element__single-element">
+                                                    <p>DDR</p>
+                                                    <select>
+                                                        <option th:each="ddr : ${ddrs}"
+                                                                th:text="${ddr}"
+                                                                th:value="${ddr}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Capacity</p>
+                                                    <select>
+                                                        <option th:each="capacity : ${capacities}"
+                                                                th:text="${capacity}"
+                                                                th:value="${capacity}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Frequency</p>
+                                                    <select>
+                                                        <option th:each="frequency : ${frequencies}"
+                                                                th:text="${frequency} + ' '+MHz"
+                                                                th:value="${frequency} + ' '+MHz">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="power_pc" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <div class="element__single-element">
+                                                    <p>Power</p>
+                                                    <select>
+                                                        <option th:each="power : ${powers}"
+                                                                th:text="${power}+ ' ' + W"
+                                                                th:value="${power}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="case_pc" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <div class="element__single-element">
+                                                    <p>Form</p>
+                                                    <select>
+                                                        <option th:each="form : ${forms}"
+                                                                th:text="${form}"
+                                                                th:value="${form}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="element__single-element">
+                                                    <p>Coolers</p>
+                                                    <select>
+                                                        <option th:each="cooler : ${coolers}"
+                                                                th:text="${cooler}"
+                                                                th:value="${cooler}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="hdd" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <p>Capacity</p>
+                                                <div class="element__dual-element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="element__dual-element">
+                                                    <select>
+                                                        <option th:each="capacity : ${capacities}"
+                                                                th:text="${capacity }+ ' ' + GB"
+                                                                th:value="${capacity}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="capacity : ${capacities}"
+                                                                th:text="${capacity}+ ' ' + GB"
+                                                                th:value="${capacity}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div th:case="ssd" th:each="product : ${component}">
+                                            <div class="content__brand">
+                                                <p>Brand</p>
+                                                <select>
+                                                    <option th:each="brand: ${brands}"
+                                                            th:text="${brand}"
+                                                            th:value="${brand}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="content__element">
+                                                <p>Capacity</p>
+                                                <div class="element__dual-element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="element__dual-element">
+                                                    <select >
+                                                        <option th:each="capacity : ${capacities}"
+                                                                th:text="${capacity} +' GB'"
+                                                                th:value="${capacity}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="capacity : ${capacities}"
+                                                                th:text="${capacity} +' GB'"
+                                                                th:value="${capacity}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content__price">
+                                                <p>Price</p>
+                                                <div class="price__element">
+                                                    <span>From</span>
+                                                    <span>To</span>
+                                                </div>
+                                                <div class="price__element">
+                                                    <select>
+                                                        <option th:each="price : ${minPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                    <select>
+                                                        <option th:each="price : ${maxPrice}"
+                                                                th:text="${price}+' '+€"
+                                                                th:value="${price}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a class="content__button" href="#">
+                                                <div>
+                                                    Search
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,20 +619,20 @@
                             <div class="products__info">
                                 <div class="info">
                                     <div class="info__row">
-                                        <a class="info__reference" th:href="@{/{page}/{id}(page=${product.getName()},
-                                        id=${product.getId()})}" th:each="product : ${component}">
+                                        <a class="info__reference" th:each="product : ${component}" th:href="@{/{page}/{id}(page=${product.getName()},
+                                        id=${product.getId()})}">
                                             <div class="info__column">
                                                 <div class="info__component">
                                                     <div class="component__row">
                                                         <div class="component__image">
-                                                            <img th:src="${product.getImage()}"
-                                                                 th:width="${width}"
-                                                                 th:height="${height}">
+                                                            <img th:height="${height}"
+                                                                 th:src="${product.getImage()}"
+                                                                 th:width="${width}">
                                                         </div>
                                                         <div class="component__title"
-                                                             th:text="${product.getSubtitle()}"></div>
+                                                             th:text="${product.getBrand()}+' '+${product.getModel()}"></div>
                                                         <div class="component__price"
-                                                             th:text="${product.getPrice()}"></div>
+                                                             th:text="${product.getPrice()}+' '+'€'"></div>
                                                     </div>
                                                 </div>
                                             </div>

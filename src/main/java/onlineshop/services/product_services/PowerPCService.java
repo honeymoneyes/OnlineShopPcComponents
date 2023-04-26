@@ -1,8 +1,6 @@
 package onlineshop.services.product_services;
 
-import onlineshop.models.products.CasePC;
 import onlineshop.models.products.PowerPC;
-import onlineshop.repositories.product_repositories.CasePCRepository;
 import onlineshop.repositories.product_repositories.PowerPCRepository;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
@@ -19,6 +17,7 @@ public class PowerPCService extends ProductAbstractService<PowerPC, PowerPCRepos
 		super(repository);
 	}
 
+	//CRUD methods
 	@Override
 	public List<PowerPC> show() {
 		return repository.findAll();
@@ -40,5 +39,32 @@ public class PowerPCService extends ProductAbstractService<PowerPC, PowerPCRepos
 	public void update(int id, PowerPC powerPC) {
 		powerPC.setId(id);
 		repository.save(powerPC);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<Integer> showUniquePower() {
+		return repository.getUniquePower();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

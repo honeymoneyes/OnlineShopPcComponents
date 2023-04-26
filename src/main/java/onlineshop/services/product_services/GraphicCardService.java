@@ -1,8 +1,6 @@
 package onlineshop.services.product_services;
 
-import onlineshop.models.products.CasePC;
 import onlineshop.models.products.GraphicCard;
-import onlineshop.repositories.product_repositories.CasePCRepository;
 import onlineshop.repositories.product_repositories.GraphicCardRepository;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
@@ -19,6 +17,7 @@ public class GraphicCardService extends ProductAbstractService<GraphicCard, Grap
 		super(repository);
 	}
 
+	//CRUD methods
 	@Override
 	public List<GraphicCard> show() {
 		return repository.findAll();
@@ -40,5 +39,40 @@ public class GraphicCardService extends ProductAbstractService<GraphicCard, Grap
 	public void update(int id, GraphicCard graphicCard) {
 		graphicCard.setId(id);
 		repository.save(graphicCard);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<String> showUniqueFamily() {
+		return repository.getUniqueFamily();
+	}
+
+	public List<Integer> showUniqueFrequency() {
+		return repository.getUniqueFrequency();
+	}
+
+	public List<Integer> showUniqueMemory() {
+		return repository.getUniqueMemory();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }

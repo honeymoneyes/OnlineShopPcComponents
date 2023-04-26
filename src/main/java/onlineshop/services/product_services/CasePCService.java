@@ -2,7 +2,6 @@ package onlineshop.services.product_services;
 
 import onlineshop.models.products.CasePC;
 import onlineshop.repositories.product_repositories.CasePCRepository;
-import onlineshop.services.CommonService;
 import onlineshop.services.ProductAbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +17,7 @@ public class CasePCService extends ProductAbstractService<CasePC, CasePCReposito
 		super(repository);
 	}
 
+	// CRUD methods
 	@Override
 	public List<CasePC> show() {
 		return repository.findAll();
@@ -39,5 +39,36 @@ public class CasePCService extends ProductAbstractService<CasePC, CasePCReposito
 	public void update(int id, CasePC casePC) {
 		casePC.setId(id);
 		repository.save(casePC);
+	}
+
+	/********************************************/
+
+	//Filters methods
+	@Override
+	public List<String> showUniqueBrand() {
+		return repository.getUniqueBrands();
+	}
+
+	@Override
+	public List<String> showModels() {
+		return repository.getModels();
+	}
+
+	public List<String> showForm() {
+		return repository.getUniqueForm();
+	}
+
+	public List<Integer> showCoolers() {
+		return repository.getUniqueCoolers();
+	}
+
+	@Override
+	public List<Integer> showUniqueFloorPrices() {
+		return repository.getUniqueFloorPrices();
+	}
+
+	@Override
+	public List<Integer> showUniqueCeilPrices() {
+		return repository.getUniqueCeilPrices();
 	}
 }
